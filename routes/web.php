@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        Route::get(Config::get('constants.ADMIN_PATH'), 'AdminController@index');
+        Route::get(Config::get('constants.ADMIN_PATH').'projets', 'AdminController@index');
+     }
+);
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
