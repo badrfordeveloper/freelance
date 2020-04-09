@@ -226,10 +226,7 @@
                     timeOut: 4000
                 };
                 toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
-
             }, 1300);
-
-
             var data1 = [
                 [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
             ];
@@ -273,7 +270,6 @@
                         tooltip: false
                     }
             );
-
             var doughnutData = {
                 labels: ["App","Software","Laptop" ],
                 datasets: [{
@@ -281,19 +277,14 @@
                     backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
                 }]
             } ;
-
-
             var doughnutOptions = {
                 responsive: false,
                 legend: {
                     display: false
                 }
             };
-
-
             var ctx4 = document.getElementById("doughnutChart").getContext("2d");
             new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
-
             var doughnutData = {
                 labels: ["App","Software","Laptop" ],
                 datasets: [{
@@ -301,19 +292,14 @@
                     backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
                 }]
             } ;
-
-
             var doughnutOptions = {
                 responsive: false,
                 legend: {
                     display: false
                 }
             };
-
-
             var ctx4 = document.getElementById("doughnutChart2").getContext("2d");
             new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
-
         });
     </script>
 </body>
