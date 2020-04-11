@@ -7,5 +7,5 @@
     */
 
 	return [
-		'ADMIN_PATH' => 'administration/'
+		'ADMIN_PATH' => 'admin/'
 	];

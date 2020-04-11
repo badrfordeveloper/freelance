@@ -19,6 +19,7 @@ Route::group(
     function () {
         Route::get(Config::get('constants.ADMIN_PATH'), 'AdminController@index');
         Route::get(Config::get('constants.ADMIN_PATH').'projets', 'AdminController@index');
+		Route::resource(Config::get('constants.ADMIN_PATH').'categories', 'Admin\\CategoriesController');
      }
 );
 Auth::routes();
