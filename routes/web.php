@@ -39,3 +39,4 @@ Route::resource('admin/commandes', 'Admin\\CommandesController');
 Route::resource('admin/skills', 'Admin\\SkillsController');
 Route::resource('admin/skillprofiles', 'Admin\\SkillprofilesController');
 Route::resource('admin/skillprojets', 'Admin\\SkillprojetsController');
+Route::resource('admin/users', 'Admin\\UsersController');
