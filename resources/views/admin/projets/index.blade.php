@@ -11,13 +11,13 @@
 
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Categories</h2>
+            <h2>Projets</h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ url(Config::get('constants.ADMIN_PATH')) }}">Tableau de Board</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <strong>Categories</strong>
+                    <strong>Projets</strong>
                 </li>
             </ol>
         </div>
@@ -31,9 +31,9 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>Categories</h5>
+                        <h5>Projets</h5>
                         <div class="ibox-tools">
-                            <a class="" href="{{ url(Config::get('constants.ADMIN_PATH').'categories'.'/create') }}">
+                            <a class="" href="{{ url(Config::get('constants.ADMIN_PATH').'projets'.'/create') }}">
                                 <i class="fa fa-plus"></i>
                             </a>
 
@@ -50,14 +50,14 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Libelle</th><th><i class="fa fa-wrench"></i></th>
+                                        <th>#</th><th>Titre</th><th>Description</th><th>Image</th><th>Prix</th><th>DateDebut</th><th>DateFin</th><th>Etat</th><th>Status</th><th>Type</th><th>Categorie Id</th><th>User Id</th><th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($categories as $item)
+                                    @foreach($projets as $item)
                                     <tr class="gradeX">
                                       <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->libelle }}</td>
+                                        <td>{{ $item->titre }}</td><td>{{ $item->description }}</td><td>{{ $item->image }}</td><td>{{ $item->prix }}</td><td>{{ $item->dateDebut }}</td><td>{{ $item->dateFin }}</td><td>{{ $item->etat }}</td><td>{{ $item->status }}</td><td>{{ $item->type }}</td><td>{{ $item->categorie_id }}</td><td>{{ $item->user_id }}</td>
 
 
                                          <td class="text-center">
@@ -66,18 +66,18 @@
                                                 <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Actions</button>
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'categories/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
+                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'projets/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
                                                     </li>
 
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'categories/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
+                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'projets/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
                                                     </li>
 
                                                     <li>
-                                                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'categories' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'projets' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                             {{ method_field('DELETE') }}
                                                             {{ csrf_field() }}
-                                                            <button type="submit" class="dropdown-item" title="Delete Category" onclick="return confirm('Voulez vous vraiment supprimer ?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
+                                                            <button type="submit" class="dropdown-item" title="Delete Projet" onclick="return confirm('Voulez vous vraiment supprimer ?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
                                                         </form>
                                                     </li>
                                                 </ul>
@@ -88,7 +88,7 @@
                                 </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>#</th><th>Libelle</th><th><i class="fa fa-wrench"></i></th>
+                                    <th>#</th><th>Titre</th><th>Description</th><th>Image</th><th>Prix</th><th>DateDebut</th><th>DateFin</th><th>Etat</th><th>Status</th><th>Type</th><th>Categorie Id</th><th>User Id</th><th><i class="fa fa-wrench"></i></th>
                                 </tr>
                             </tfoot>
                             </table>

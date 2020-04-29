@@ -2,20 +2,23 @@
 
 @section('content')
 
-    <div class="row wrapper border-bottom white-bg page-heading">
+       <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Category</h2>
+            <h2>Categories</h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ url(Config::get('constants.ADMIN_PATH')) }}">Tableau de Board</a>
                 </li>
+
+                <li class="breadcrumb-item">
+                    <a href="{{ url(Config::get('constants.ADMIN_PATH').'categories') }}">Categories</a>
+                </li>
                 <li class="breadcrumb-item active">
-                    <strong>Category</strong>
+                    <strong>Editer</strong>
                 </li>
             </ol>
         </div>
         <div class="col-lg-2">
-                <a href="{{ url('/admin/categories') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
         </div>
     </div>
 
@@ -43,7 +46,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form method="POST" action="{{ url('/admin/categories/' . $category->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'categories' . $category->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 

@@ -3,14 +3,14 @@
 @section('content')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Categories</h2>
+            <h2>Commandes</h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ url(Config::get('constants.ADMIN_PATH')) }}">Tableau de Board</a>
                 </li>
 
                 <li class="breadcrumb-item">
-                    <a href="{{ url(Config::get('constants.ADMIN_PATH').'categories') }}">Categories</a>
+                    <a href="{{ url(Config::get('constants.ADMIN_PATH').'commandes') }}">Commandes</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <strong>Nouveau</strong>
@@ -34,7 +34,7 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>Categories</h5>
+                        <h5>Commandes</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -45,10 +45,10 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'categories') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'commandes') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            @include ('admin.categories.form', ['formMode' => 'create'])
+                            @include ('admin.commandes.form', ['formMode' => 'create'])
 
                         </form>
                     </div>

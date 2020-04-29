@@ -4,13 +4,16 @@
 
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Categories</h2>
+            <h2>Skillprofiles</h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ url(Config::get('constants.ADMIN_PATH')) }}">Tableau de Board</a>
                 </li>
                  <li class="breadcrumb-item">
-                    <a href="{{ url(Config::get('constants.ADMIN_PATH').'categories') }}">Categories</a>
+                    <a href="{{ url(Config::get('constants.ADMIN_PATH').'skillprofiles') }}">Skillprofiles</a>
+                </li>
+                  <li class="breadcrumb-item active">
+                    <strong>Voir</strong>
                 </li>
             </ol>
         </div>
@@ -23,7 +26,7 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>Category</h5>
+                        <h5>Skillprofile</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -41,22 +44,22 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $category->id }}</td>
+                                        <th>ID</th><td>{{ $skillprofile->id }}</td>
                                     </tr>
-                                    <tr><th> Libelle </th><td> {{ $category->libelle }} </td></tr>
+                                    <tr><th> Categorie Id </th><td> {{ $skillprofile->categorie_id }} </td></tr><tr><th> Profile Id </th><td> {{ $skillprofile->profile_id }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
 
-                         <a href="{{ url('/admin/categories/' . $category->id . '/edit') }}" title="Edit Category"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</button></a>
+                         <a href="{{ url('/admin/skillprofiles/' . $skillprofile->id . '/edit') }}" title="Edit Skillprofile"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</button></a>
 
 
                         <div class="table-responsive" style="display:inline">
 
-                        <form method="POST" action="{{ url('admin/categories' . '/' . $category->id) }}" accept-charset="UTF-8" style="display:inline">
+                        <form method="POST" action="{{ url('admin/skillprofiles' . '/' . $skillprofile->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-sm" title="Delete Category" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
+                            <button type="submit" class="btn btn-danger btn-sm" title="Delete Skillprofile" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
                         </form>
 
                     </div>
