@@ -50,19 +50,40 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Nom</th><th>Prenom</th><th>Username</th><th>Email</th><th>Password</th><th>Role</th><th>Photo</th><th>Cover</th><th>Tel</th><th>DateNaissance</th><th>Sexe</th><th>Adresse</th><th><i class="fa fa-wrench"></i></th>
+                                        <th>#</th>
+                                        <th>Photo</th>
+                                        <th>Cover</th>
+                                        <th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Role</th>
+                                        <th>Tel</th>
+                                        <th>DateNaissance</th>
+                                        <th>Sexe</th>
+                                        <th>Adresse</th>
+                                        <th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($users as $item)
                                     <tr class="gradeX">
-                                      <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nom }}</td><td>{{ $item->prenom }}</td><td>{{ $item->username }}</td><td>{{ $item->email }}</td><td>{{ $item->password }}</td><td>{{ $item->role }}</td><td>{{ $item->photo }}</td><td>{{ $item->cover }}</td><td>{{ $item->tel }}</td><td>{{ $item->dateNaissance }}</td><td>{{ $item->sexe }}</td><td>{{ $item->adresse }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td><img src="{{ asset('storage/'.$item->photo) }}" height="60px" alt=""></td>
+                                        <td><img src="{{ asset('storage/'.$item->cover) }}" height="60px" alt=""></td>
+                                        <td>{{ $item->nom }}</td>
+                                        <td>{{ $item->prenom }}</td>
+                                        <td>{{ $item->username }}</td>
+                                        <td>{{ $item->email }}</td><td>{{ $item->password }}</td>
+                                        <td>{{ $item->role }}</td>
+                                        <td>{{ $item->tel }}</td>
+                                        <td>{{ $item->dateNaissance }}</td>
+                                        <td>{{ $item->sexe }}</td>
+                                        <td>{{ $item->adresse }}</td>
 
-
-                                         <td class="text-center">
-
-                                         <div class="btn-group">
+                                        <td class="text-center">
+                                            <div class="btn-group">
                                                 <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Actions</button>
                                                 <ul class="dropdown-menu">
                                                     <li>
@@ -88,7 +109,7 @@
                                 </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>#</th><th>Nom</th><th>Prenom</th><th>Username</th><th>Email</th><th>Password</th><th>Role</th><th>Photo</th><th>Cover</th><th>Tel</th><th>DateNaissance</th><th>Sexe</th><th>Adresse</th><th><i class="fa fa-wrench"></i></th>
+                                    <th>#</th><th>Photo</th><th>Cover</th><th>Nom</th><th>Prenom</th><th>Username</th><th>Email</th><th>Password</th><th>Role</th><th>Tel</th><th>DateNaissance</th><th>Sexe</th><th>Adresse</th><th><i class="fa fa-wrench"></i></th>
                                 </tr>
                             </tfoot>
                             </table>

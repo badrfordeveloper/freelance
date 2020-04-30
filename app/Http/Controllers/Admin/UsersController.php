@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\UplodedFile;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
 
 use App\User;
@@ -48,8 +50,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+        $directoryPhoto = 'photos';
+        $directoryCover = 'covers';
+        Storage::makeDirectory($directoryPhoto);
+        Storage::makeDirectory($directoryCover);
+
         $requestData = $request->all();
+
+        if($request->hasFile('photo')) $requestData['photo']= $request->file('photo')->store($directoryPhoto);
+        if($request->hasFile('cover')) $requestData['cover']= $request->file('cover')->store($directoryCover);
         
         User::create($requestData);
 
@@ -94,10 +104,22 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = User::findOrFail($id);
+        $oldPhoto =$user->photo;
+        $oldCover = $user->cover;
+
+        $directoryPhoto = 'photos';
+        $directoryCover = 'covers';
+        Storage::makeDirectory($directoryPhoto);
+        Storage::makeDirectory($directoryCover);
         
         $requestData = $request->all();
+        if($request->hasFile('photo')) $requestData['photo']= $request->file('photo')->store($directoryPhoto);
+        if($request->hasFile('cover')) $requestData['cover']= $request->file('cover')->store($directoryCover);
+
+        if( !empty($requestData['photo']) ) Storage::delete($oldPhoto);
+        if( !empty($requestData['cover']) ) Storage::delete($oldCover);
         
-        $user = User::findOrFail($id);
         $user->update($requestData);
 
         return redirect('admin/users')->with('flash_message', 'User updated!');

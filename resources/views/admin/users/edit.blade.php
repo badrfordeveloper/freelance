@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'users' . $user->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'users/' . $user->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
@@ -58,4 +58,12 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+    $('.custom-file-input').on('change', function() {
+       let fileName = $(this).val().split('\\').pop();
+       $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    }); 
+</script>
 @endsection

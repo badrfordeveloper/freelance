@@ -32,7 +32,7 @@
 <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
     <label for="password" class="col-sm-2 col-form-label">{{ 'Password' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="password" type="text" id="password" value="{{ isset($user->password) ? $user->password : ''}}" >
+    	<input class="form-control" name="password" type="password" id="password" value="{{ isset($user->password) ? $user->password : ''}}" >
 
     </div>
     {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
@@ -48,16 +48,21 @@
 <div class="form-group row {{ $errors->has('photo') ? 'has-error' : ''}}">
     <label for="photo" class="col-sm-2 col-form-label">{{ 'Photo' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="photo" type="text" id="photo" value="{{ isset($user->photo) ? $user->photo : ''}}" >
-
+         <div class="custom-file">
+            <input id="photo"name="photo" type="file" class="custom-file-input">
+            <label for="photo" class="custom-file-label">Selectionez une image...</label>
+        </div> 
     </div>
     {!! $errors->first('photo', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group row {{ $errors->has('cover') ? 'has-error' : ''}}">
-    <label for="cover" class="col-sm-2 col-form-label">{{ 'Cover' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="cover" type="text" id="cover" value="{{ isset($user->cover) ? $user->cover : ''}}" >
 
+    <label for="cover" class="col-sm-2 col-form-label">{{ 'Couverture' }}</label>
+	<div class="col-sm-10">
+        <div class="custom-file">
+            <input id="cover"name="cover" type="file" class="custom-file-input">
+            <label for="cover" class="custom-file-label">Selectionez une image...</label>
+        </div> 
     </div>
     {!! $errors->first('cover', '<p class="help-block">:message</p>') !!}
 </div>
@@ -79,7 +84,13 @@
 <div class="form-group row {{ $errors->has('sexe') ? 'has-error' : ''}}">
     <label for="sexe" class="col-sm-2 col-form-label">{{ 'Sexe' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="sexe" type="text" id="sexe" value="{{ isset($user->sexe) ? $user->sexe : ''}}" >
+        <div class="i-checks">
+            <?php 
+                $checkedHomme = (!isset($user->sexe) || $user->sexe =='Homme') ? 'checked' : '';
+                $checkedFemme = (isset($user->sexe) && $user->sexe =='Femme') ? 'checked' :'';
+            ?>
+            <label> <input type="radio" value="Homme" id="sexeH"  {{$checkedHomme}} name="sexe"> <i></i> Homme</label> <label> <input type="radio" value="Femme" id="sexeF" {{$checkedFemme}} name="sexe"> <i></i> Femme </label>
+        </div>
 
     </div>
     {!! $errors->first('sexe', '<p class="help-block">:message</p>') !!}

@@ -43,10 +43,19 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover">
                                 <tbody>
-                                    <tr>
-                                        <th>ID</th><td>{{ $user->id }}</td>
-                                    </tr>
-                                    <tr><th> Nom </th><td> {{ $user->nom }} </td></tr><tr><th> Prenom </th><td> {{ $user->prenom }} </td></tr><tr><th> Username </th><td> {{ $user->username }} </td></tr><tr><th> Email </th><td> {{ $user->email }} </td></tr><tr><th> Password </th><td> {{ $user->password }} </td></tr><tr><th> Role </th><td> {{ $user->role }} </td></tr><tr><th> Photo </th><td> {{ $user->photo }} </td></tr><tr><th> Cover </th><td> {{ $user->cover }} </td></tr><tr><th> Tel </th><td> {{ $user->tel }} </td></tr><tr><th> DateNaissance </th><td> {{ $user->dateNaissance }} </td></tr><tr><th> Sexe </th><td> {{ $user->sexe }} </td></tr><tr><th> Adresse </th><td> {{ $user->adresse }} </td></tr>
+                                    <tr><th>ID</th><td>{{ $user->id }}</td></tr>
+                                    <tr><th> Photo </th><td> <img src="{{ asset('storage/'.$user->photo) }}" height="60px" alt=""> </td></tr>
+                                    <tr><th> Cover </th><td> <img src="{{ asset('storage/'.$user->cover) }}" height="60px" alt=""></td></tr>
+                                    <tr><th> Nom </th><td> {{ $user->nom }} </td></tr>
+                                    <tr><th> Prenom </th><td> {{ $user->prenom }} </td></tr>
+                                    <tr><th> Username </th><td> {{ $user->username }} </td></tr>
+                                    <tr><th> Email </th><td> {{ $user->email }} </td></tr>
+                                    <tr><th> Password </th><td> {{ $user->password }} </td></tr>
+                                    <tr><th> Role </th><td> {{ $user->role }} </td></tr>
+                                    <tr><th> Tel </th><td> {{ $user->tel }} </td></tr>
+                                    <tr><th> DateNaissance </th><td> {{ $user->dateNaissance }} </td></tr>
+                                    <tr><th> Sexe </th><td> {{ $user->sexe }} </td></tr>
+                                    <tr><th> Adresse </th><td> {{ $user->adresse }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
