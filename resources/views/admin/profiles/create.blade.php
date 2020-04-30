@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'profiles') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'profiles') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" autocomplete="off">
                             {{ csrf_field() }}
 
                             @include ('admin.profiles.form', ['formMode' => 'create'])
@@ -57,3 +57,14 @@
         </div>
     </div>
 @endsection
+@section('script')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+
+<script type="text/javascript">
+            $( ".select2" ).select2({
+            maximumInputLength: 20 // only allow terms up to 20 characters long
+        });
+">
+</script>
+@endsection
+

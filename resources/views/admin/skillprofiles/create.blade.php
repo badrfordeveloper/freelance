@@ -57,3 +57,13 @@
         </div>
     </div>
 @endsection
+@section('script')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+
+<script type="text/javascript">
+            $( ".select2" ).select2({
+            maximumInputLength: 20 // only allow terms up to 20 characters long
+        });
+">
+</script>
+@endsection

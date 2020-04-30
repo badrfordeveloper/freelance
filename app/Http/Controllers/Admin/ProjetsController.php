@@ -17,28 +17,14 @@ class ProjetsController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        if (!empty($keyword)) {
-            $projets = Projet::where('titre', 'LIKE', "%$keyword%")
-                ->orWhere('description', 'LIKE', "%$keyword%")
-                ->orWhere('image', 'LIKE', "%$keyword%")
-                ->orWhere('prix', 'LIKE', "%$keyword%")
-                ->orWhere('dateDebut', 'LIKE', "%$keyword%")
-                ->orWhere('dateFin', 'LIKE', "%$keyword%")
-                ->orWhere('etat', 'LIKE', "%$keyword%")
-                ->orWhere('status', 'LIKE', "%$keyword%")
-                ->orWhere('type', 'LIKE', "%$keyword%")
-                ->orWhere('categorie_id', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $projets = Projet::latest()->paginate($perPage);
-        }
-
+      
+        $projets = Projet::All();
         return view('admin.projets.index', compact('projets'));
     }
 

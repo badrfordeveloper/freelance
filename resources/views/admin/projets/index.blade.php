@@ -108,9 +108,21 @@
                                     @endforeach                
                                 </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>#</th><th>Titre</th><th>Description</th><th>Image</th><th>Prix</th><th>DateDebut</th><th>DateFin</th><th>Etat</th><th>Status</th><th>Type</th><th>Categorie Id</th><th>User Id</th><th><i class="fa fa-wrench"></i></th>
-                                </tr>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Titre</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Prix</th>
+                                        <th>DateDebut</th>
+                                        <th>DateFin</th>
+                                        <th>Etat</th>
+                                        <th>Status</th>
+                                        <th>Type</th>
+                                        <th>Categorie </th>
+                                        <th>User</th>
+                                        <th><i class="fa fa-wrench"></i></th>
+                                    </tr>
                             </tfoot>
                             </table>
                         </div>

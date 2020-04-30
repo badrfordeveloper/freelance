@@ -15,19 +15,14 @@ class SkillprofilesController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        if (!empty($keyword)) {
-            $skillprofiles = Skillprofile::where('categorie_id', 'LIKE', "%$keyword%")
-                ->orWhere('profile_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $skillprofiles = Skillprofile::latest()->paginate($perPage);
-        }
-
+       
+        $skillprofiles = Skillprofile::All();
         return view('admin.skillprofiles.index', compact('skillprofiles'));
     }
 

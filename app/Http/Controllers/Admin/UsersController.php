@@ -17,16 +17,14 @@ class UsersController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        if (!empty($keyword)) {
-            $users = User::latest()->paginate($perPage);
-        } else {
-            $users = User::latest()->paginate($perPage);
-        }
+        $users = User::All();
 
         return view('admin.users.index', compact('users'));
     }

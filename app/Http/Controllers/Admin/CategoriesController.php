@@ -15,17 +15,17 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
 
-        if (!empty($keyword)) {
-            $categories = Category::where('libelle', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $categories = Category::latest()->paginate($perPage);
-        }
+        $categories = Category::All();
 
         return view('admin.categories.index', compact('categories'));
     }

@@ -17,21 +17,17 @@ class CommandesController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        if (!empty($keyword)) {
-            $commandes = Commande::where('description', 'LIKE', "%$keyword%")
-                ->orWhere('status', 'LIKE', "%$keyword%")
-                ->orWhere('projet_id', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $commandes = Commande::latest()->paginate($perPage);
-        }
-
+       
+        $commandes = Commande::All();
+      
         return view('admin.commandes.index', compact('commandes'));
     }
 

@@ -50,7 +50,7 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Categorie Id</th><th>Projet Id</th><th><i class="fa fa-wrench"></i></th>
+                                        <th>#</th><th>Categorie </th><th>Projet </th><th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,7 +88,7 @@
                                 </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>#</th><th>Categorie Id</th><th>Projet Id</th><th><i class="fa fa-wrench"></i></th>
+                                    <th>#</th><th>Categorie </th><th>Projet </th><th><i class="fa fa-wrench"></i></th>
                                 </tr>
                             </tfoot>
                             </table>

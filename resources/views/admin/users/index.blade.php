@@ -108,9 +108,22 @@
                                     @endforeach                
                                 </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>#</th><th>Photo</th><th>Cover</th><th>Nom</th><th>Prenom</th><th>Username</th><th>Email</th><th>Password</th><th>Role</th><th>Tel</th><th>DateNaissance</th><th>Sexe</th><th>Adresse</th><th><i class="fa fa-wrench"></i></th>
-                                </tr>
+                                   <tr>
+                                        <th>#</th>
+                                        <th>Photo</th>
+                                        <th>Cover</th>
+                                        <th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Role</th>
+                                        <th>Tel</th>
+                                        <th>DateNaissance</th>
+                                        <th>Sexe</th>
+                                        <th>Adresse</th>
+                                        <th><i class="fa fa-wrench"></i></th>
+                                    </tr>
                             </tfoot>
                             </table>
                         </div>

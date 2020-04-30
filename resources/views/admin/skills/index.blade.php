@@ -91,9 +91,12 @@
                                     @endforeach                
                                 </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>#</th><th>Libelle</th><th>Categorie Id</th><th><i class="fa fa-wrench"></i></th>
-                                </tr>
+                               <tr>
+                                        <th>#</th>
+                                        <th>Libelle</th>
+                                        <th>Categorie</th>
+                                        <th><i class="fa fa-wrench"></i></th>
+                                    </tr>
                             </tfoot>
                             </table>
                         </div>

@@ -17,18 +17,14 @@ class SkillsController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        if (!empty($keyword)) {
-            $skills = Skill::where('libelle', 'LIKE', "%$keyword%")
-                ->orWhere('categorie_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $skills = Skill::latest()->paginate($perPage);
-        }
+       
+        $skills = Skill::All();
 
         return view('admin.skills.index', compact('skills'));
     }

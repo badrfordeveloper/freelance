@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'users/' . $user->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'users/' . $user->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" autocomplete="off">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
@@ -65,5 +65,14 @@
        let fileName = $(this).val().split('\\').pop();
        $(this).next('.custom-file-label').addClass("selected").html(fileName);
     }); 
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+
+<script type="text/javascript">
+            $( ".select2" ).select2({
+            maximumInputLength: 20 // only allow terms up to 20 characters long
+        });
+">
 </script>
 @endsection

@@ -68,9 +68,9 @@
                                         <td>{{ $item->user->username }}</td>
 
 
-                                         <td class="text-center">
+                                        <td class="text-center">
 
-                                         <div class="btn-group">
+                                            <div class="btn-group">
                                                 <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Actions</button>
                                                 <ul class="dropdown-menu">
                                                     <li>
@@ -96,8 +96,13 @@
                                 </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>#</th><th>Description</th><th>Status</th><th>Projet Id</th><th>User Id</th><th><i class="fa fa-wrench"></i></th>
-                                </tr>
+                                        <th>#</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Projet </th>
+                                        <th>User</th>
+                                        <th><i class="fa fa-wrench"></i></th>
+                                    </tr>
                             </tfoot>
                             </table>
                         </div>

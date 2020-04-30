@@ -15,18 +15,14 @@ class SkillprojetsController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        if (!empty($keyword)) {
-            $skillprojets = Skillprojet::where('categorie_id', 'LIKE', "%$keyword%")
-                ->orWhere('projet_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $skillprojets = Skillprojet::latest()->paginate($perPage);
-        }
+      
+        $skillprojets = Skillprojet::All();
 
         return view('admin.skillprojets.index', compact('skillprojets'));
     }

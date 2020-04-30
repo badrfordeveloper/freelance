@@ -15,21 +15,14 @@ class ProfilesController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        if (!empty($keyword)) {
-            $profiles = Profile::where('description', 'LIKE', "%$keyword%")
-                ->orWhere('status', 'LIKE', "%$keyword%")
-                ->orWhere('langues', 'LIKE', "%$keyword%")
-                ->orWhere('experience', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $profiles = Profile::latest()->paginate($perPage);
-        }
+      
+        $profiles = Profile::All();
 
         return view('admin.profiles.index', compact('profiles'));
     }
