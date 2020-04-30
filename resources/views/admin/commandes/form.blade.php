@@ -13,22 +13,46 @@
     </div>
     {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group row {{ $errors->has('projet_id') ? 'has-error' : ''}}">
-    <label for="projet_id" class="col-sm-2 col-form-label">{{ 'Projet Id' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="projet_id" type="number" id="projet_id" value="{{ isset($commande->projet_id) ? $commande->projet_id : ''}}" >
 
+<div class="form-group row{{ $errors->has('projet_id') ? 'has-error' : ''}}">
+    <label class="col-sm-2 col-form-label">Projet</label>
+
+    <div class="col-sm-10">
+        <select  class="select2 form-control custom-select" id="projet_id" name="projet_id" style="width: 100%; height:36px;">
+                    <option selected>Selectionnez</option>
+                    @if(count($projets))
+                        @foreach($projets as $obj)
+                            <option value="{{ $obj->id }}"  @if(isset($commande->projet_id) && $commande->projet_id== $obj->id )selected @endif>{{ $obj->id }} - {{ $obj->titre }}</option>
+                        @endforeach
+                    @endif
+        </select>
     </div>
-    {!! $errors->first('projet_id', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group row {{ $errors->has('user_id') ? 'has-error' : ''}}">
+
+<div class="form-group row{{ $errors->has('user_id') ? 'has-error' : ''}}">
+    <label class="col-sm-2 col-form-label">User</label>
+
+    <div class="col-sm-10">
+        <select  class="select2 form-control custom-select" id="user_id" name="user_id" style="width: 100%; height:36px;">
+                    <option selected>Selectionnez</option>
+                    @if(count($users))
+                        @foreach($users as $obj)
+                            <option value="{{ $obj->id }}"  @if(isset($commande->user_id) && $commande->user_id== $obj->id )selected @endif>{{ $obj->username }}</option>
+                        @endforeach
+                    @endif
+        </select>
+    </div>
+</div>
+
+
+<!-- <div class="form-group row {{ $errors->has('user_id') ? 'has-error' : ''}}">
     <label for="user_id" class="col-sm-2 col-form-label">{{ 'User Id' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="user_id" type="number" id="user_id" value="{{ isset($commande->user_id) ? $commande->user_id : ''}}" >
+    <div class="col-sm-10">
+        <input class="form-control" name="user_id" type="number" id="user_id" value="{{ isset($commande->user_id) ? $commande->user_id : ''}}" >
 
     </div>
     {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
-</div>
+</div> -->
 
 
 <div class="form-group row">

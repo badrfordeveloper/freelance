@@ -27,7 +27,7 @@
                             </ul>
                         </div>
                         <div class="logo-element">
-                            IN+
+                            FRL
                         </div>
                     </li>
                     <li class="active">
@@ -37,21 +37,27 @@
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'projets')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Projets</span></a>
                     </li>
+
+                     <li>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'users')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Users</span></a>
+                    </li>
+
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'projets')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Freelancers</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'users')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Freelancers</span></a>
                     </li>
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'projets')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Employeurs</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'users')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Employeurs</span></a>
                     </li>
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'projets')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Commandes</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'commandes')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Commandes</span></a>
                     </li>
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'projets')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Catégories</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'categories')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Catégories</span></a>
                     </li>
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'projets')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">skills</span></a>
-                    </li>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'skills')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">skills</span></a>
+                    </li>            
+
                     
                     <!-- <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>

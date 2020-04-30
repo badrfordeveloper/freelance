@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Skill;
+
+use App\Category;
 use Illuminate\Http\Request;
 
 class SkillsController extends Controller
@@ -38,7 +40,10 @@ class SkillsController extends Controller
      */
     public function create()
     {
-        return view('admin.skills.create');
+
+
+        $categories=Category::All();
+        return view('admin.skills.create',compact('categories'));
     }
 
     /**
@@ -81,9 +86,10 @@ class SkillsController extends Controller
      */
     public function edit($id)
     {
+         $categories=Category::All();
         $skill = Skill::findOrFail($id);
 
-        return view('admin.skills.edit', compact('skill'));
+        return view('admin.skills.edit', compact('skill','categories'));
     }
 
     /**

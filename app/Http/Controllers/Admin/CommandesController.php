@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
+use App\User;
+use App\Projet;
 use App\Commande;
 use Illuminate\Http\Request;
 
@@ -40,7 +42,10 @@ class CommandesController extends Controller
      */
     public function create()
     {
-        return view('admin.commandes.create');
+        // only freelances
+        $users=User::All();
+        $projets=Projet::All();
+        return view('admin.commandes.create',compact('users','projets'));
     }
 
     /**
@@ -83,9 +88,12 @@ class CommandesController extends Controller
      */
     public function edit($id)
     {
+           // only freelances
+        $users=User::All();
+        $projets=Projet::All();
         $commande = Commande::findOrFail($id);
 
-        return view('admin.commandes.edit', compact('commande'));
+        return view('admin.commandes.edit', compact('commande','users','projets'));
     }
 
     /**
