@@ -33,7 +33,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('admin/categories', 'Admin\\CategoriesController');
 Route::resource('admin/profiles', 'Admin\\ProfilesController');
-Route::resource('admin/profiles', 'Admin\\ProfilesController');
 Route::resource('admin/projets', 'Admin\\ProjetsController');
 Route::resource('admin/commandes', 'Admin\\CommandesController');
 Route::resource('admin/skills', 'Admin\\SkillsController');

@@ -50,14 +50,18 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Libelle</th><th>Categorie Id</th><th><i class="fa fa-wrench"></i></th>
+                                        <th>#</th>
+                                        <th>Libelle</th>
+                                        <th>Categorie</th>
+                                        <th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($skills as $item)
                                     <tr class="gradeX">
                                       <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->libelle }}</td><td>{{ $item->categorie_id }}</td>
+                                        <td>{{ $item->libelle }}</td>
+                                        <td>{{ $item->categorie->libelle }}</td>
 
 
                                          <td class="text-center">

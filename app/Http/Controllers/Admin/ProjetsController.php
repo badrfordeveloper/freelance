@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Projet;
+use App\User;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProjetsController extends Controller
@@ -47,7 +49,9 @@ class ProjetsController extends Controller
      */
     public function create()
     {
-        return view('admin.projets.create');
+        $users=User::All();
+        $categories=Category::All();
+        return view('admin.projets.create',compact('categories','users'));
     }
 
     /**
@@ -90,9 +94,11 @@ class ProjetsController extends Controller
      */
     public function edit($id)
     {
+        $users=User::All();
+        $categories=Category::All();
         $projet = Projet::findOrFail($id);
 
-        return view('admin.projets.edit', compact('projet'));
+        return view('admin.projets.edit', compact('projet','categories','users'));
     }
 
     /**

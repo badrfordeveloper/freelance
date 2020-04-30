@@ -50,15 +50,36 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Titre</th><th>Description</th><th>Image</th><th>Prix</th><th>DateDebut</th><th>DateFin</th><th>Etat</th><th>Status</th><th>Type</th><th>Categorie Id</th><th>User Id</th><th><i class="fa fa-wrench"></i></th>
+                                        <th>#</th>
+                                        <th>Titre</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Prix</th>
+                                        <th>DateDebut</th>
+                                        <th>DateFin</th>
+                                        <th>Etat</th>
+                                        <th>Status</th>
+                                        <th>Type</th>
+                                        <th>Categorie </th>
+                                        <th>User</th>
+                                        <th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($projets as $item)
                                     <tr class="gradeX">
                                       <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->titre }}</td><td>{{ $item->description }}</td><td>{{ $item->image }}</td><td>{{ $item->prix }}</td><td>{{ $item->dateDebut }}</td><td>{{ $item->dateFin }}</td><td>{{ $item->etat }}</td><td>{{ $item->status }}</td><td>{{ $item->type }}</td><td>{{ $item->categorie_id }}</td><td>{{ $item->user_id }}</td>
-
+                                        <td>{{ $item->titre }}</td>
+                                        <td>{{ $item->description }}</td>
+                                        <td>{{ $item->image }}</td>
+                                        <td>{{ $item->prix }}</td>
+                                        <td>{{ $item->dateDebut }}</td>
+                                        <td>{{ $item->dateFin }}</td>
+                                        <td>{{ $item->etat }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>{{ $item->type }}</td>
+                                        <td>{{ $item->categorie->libelle}}</td>
+                                        <td>{{ $item->user->username }}</td>
 
                                          <td class="text-center">
 
