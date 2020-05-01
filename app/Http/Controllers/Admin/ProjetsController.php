@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Projet;
+use App\Skill;
 use App\User;
 use App\Category;
 use Illuminate\Http\Request;
@@ -36,8 +37,9 @@ class ProjetsController extends Controller
     public function create()
     {
         $users=User::All();
+        $skills=Skill::All();
         $categories=Category::All();
-        return view('admin.projets.create',compact('categories','users'));
+        return view('admin.projets.create',compact('categories','users','skills'));
     }
 
     /**
@@ -51,8 +53,10 @@ class ProjetsController extends Controller
     {
         
         $requestData = $request->all();
-        
-        Projet::create($requestData);
+        $projet=Projet::create($requestData);
+
+        $skills = Skill::find($request->input('skill_id'));
+        $projet->skills()->attach($skills);
 
         return redirect('admin/projets')->with('flash_message', 'Projet added!');
     }
@@ -80,11 +84,14 @@ class ProjetsController extends Controller
      */
     public function edit($id)
     {
+        $skills=Skill::All();
         $users=User::All();
         $categories=Category::All();
         $projet = Projet::findOrFail($id);
 
-        return view('admin.projets.edit', compact('projet','categories','users'));
+       
+
+        return view('admin.projets.edit', compact('projet','categories','users','skills'));
     }
 
     /**
@@ -103,6 +110,13 @@ class ProjetsController extends Controller
         $projet = Projet::findOrFail($id);
         $projet->update($requestData);
 
+
+        $skills = Skill::find($request->input('skill_id'));
+
+        $projet->skills()->sync($skills);
+      
+
+
         return redirect('admin/projets')->with('flash_message', 'Projet updated!');
     }
 
@@ -115,6 +129,9 @@ class ProjetsController extends Controller
      */
     public function destroy($id)
     {
+
+        $projet=Projet::find($id);
+        $projet->skills()->detach();
         Projet::destroy($id);
 
         return redirect('admin/projets')->with('flash_message', 'Projet deleted!');

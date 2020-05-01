@@ -52,17 +52,13 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Photo</th>
-                                        <th>Cover</th>
                                         <th>Nom</th>
                                         <th>Prenom</th>
                                         <th>Username</th>
                                         <th>Email</th>
-                                        <th>Password</th>
                                         <th>Role</th>
                                         <th>Tel</th>
-                                        <th>DateNaissance</th>
                                         <th>Sexe</th>
-                                        <th>Adresse</th>
                                         <th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
@@ -71,16 +67,13 @@
                                     <tr class="gradeX">
                                         <td>{{ $loop->iteration }}</td>
                                         <td><img src="{{ asset('storage/'.$item->photo) }}" height="60px" alt=""></td>
-                                        <td><img src="{{ asset('storage/'.$item->cover) }}" height="60px" alt=""></td>
                                         <td>{{ $item->nom }}</td>
                                         <td>{{ $item->prenom }}</td>
                                         <td>{{ $item->username }}</td>
-                                        <td>{{ $item->email }}</td><td>{{ $item->password }}</td>
+                                        <td>{{ $item->email }}</td>
                                         <td>{{ $item->role }}</td>
                                         <td>{{ $item->tel }}</td>
-                                        <td>{{ $item->dateNaissance }}</td>
                                         <td>{{ $item->sexe }}</td>
-                                        <td>{{ $item->adresse }}</td>
 
                                         <td class="text-center">
                                             <div class="btn-group">
@@ -108,20 +101,16 @@
                                     @endforeach                
                                 </tbody>
                             <tfoot>
-                                   <tr>
+                                    <tr>
                                         <th>#</th>
                                         <th>Photo</th>
-                                        <th>Cover</th>
                                         <th>Nom</th>
                                         <th>Prenom</th>
                                         <th>Username</th>
                                         <th>Email</th>
-                                        <th>Password</th>
                                         <th>Role</th>
                                         <th>Tel</th>
-                                        <th>DateNaissance</th>
                                         <th>Sexe</th>
-                                        <th>Adresse</th>
                                         <th><i class="fa fa-wrench"></i></th>
                                     </tr>
                             </tfoot>

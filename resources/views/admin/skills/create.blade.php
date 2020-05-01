@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('css')
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
+
 @section('content')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
@@ -64,7 +69,6 @@
             $( ".select2" ).select2({
             maximumInputLength: 20 // only allow terms up to 20 characters long
         });
-">
 </script>
 @endsection
 

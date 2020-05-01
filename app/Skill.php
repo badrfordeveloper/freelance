@@ -31,5 +31,10 @@ class Skill extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    public function projets()
+    {
+        return $this->belongsToMany('App\Projet');
+    }
     
 }

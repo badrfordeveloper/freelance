@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateSkillprojetsTable extends Migration
+class CreateProjetSkillTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +13,15 @@ class CreateSkillprojetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('skillprojets', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->integer('categorie_id')->unsigned();
+        Schema::create('projet_skill', function (Blueprint $table) {
+            $table->id();
+            $table->integer('skill_id')->unsigned();
             $table->integer('projet_id')->unsigned();
             $table->foreign('projet_id')->references('id')->on('projets')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
-            });
+            $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -29,6 +31,6 @@ class CreateSkillprojetsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('skillprojets');
+        Schema::dropIfExists('projet_skill');
     }
 }

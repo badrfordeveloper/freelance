@@ -35,5 +35,10 @@ class Projet extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    public function skills()
+    {
+        return $this->belongsToMany('App\Skill');
+    }
     
 }

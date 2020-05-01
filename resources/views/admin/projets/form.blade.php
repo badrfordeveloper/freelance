@@ -98,9 +98,44 @@
 </div>
 
 
+<div class="form-group row{{ $errors->has('skill_id') ? 'has-error' : ''}}">
+    <label class="col-sm-2 col-form-label">Skills</label>
+
+    <div class="col-sm-10">
+        <select  class="select2 form-control custom-select" id="skill_id" name="skill_id[]" multiple="multiple" style="width: 100%; height:36px;">
+            
+                    @if(count($skills))
+                        @foreach($skills as $obj)
+                            <option value="{{ $obj->id }}"  
+
+                                @if(count($projet->skills))
+
+                                    @foreach($projet->skills as $obj2)
+
+                                        @if( $obj2->id== $obj->id )
+
+                                            selected
+
+                                        @endif
+
+                                    @endforeach
+                                @endif
+
+
+
+                                  >{{ $obj->libelle }}
+
+
+                            </option>
+                        @endforeach
+                    @endif
+        </select>
+    </div>
+</div>
+
 
 <div class="form-group row">
-    <div class="col-sm-4 col-sm-offset-2">
+    <div class="col-sm-12 text-center">
         <button class="btn btn-primary btn-sm" type="submit">{{ $formMode === 'edit' ? 'Update' : 'Create' }}</button>
     </div>
 </div>
