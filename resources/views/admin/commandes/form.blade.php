@@ -57,7 +57,7 @@
 
 <div class="form-group row">
     <div class="col-sm-12 text-center">
-        <button class="btn btn-primary btn-sm" type="submit">{{ $formMode === 'edit' ? 'Update' : 'Create' }}</button>
+        <button class="btn btn-primary btn-sm" type="submit">{{ $formMode === 'edit' ? 'Modifier' : 'Ajouter' }}</button>
     </div>
 </div>
 
