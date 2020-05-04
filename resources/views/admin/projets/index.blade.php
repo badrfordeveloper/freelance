@@ -71,7 +71,7 @@
                                       <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->titre }}</td>
                                         <td>{{ $item->description }}</td>
-                                        <td>{{ $item->image }}</td>
+                                        <td><img src="{{ asset('storage/'.$item->image) }}" height="60px" alt=""></td>
                                         <td>{{ $item->prix }}</td>
                                         <td>{{ $item->dateDebut }}</td>
                                         <td>{{ $item->dateFin }}</td>

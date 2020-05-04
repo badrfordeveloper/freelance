@@ -51,8 +51,14 @@ class ProjetsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $directoryPhoto = 'projet';
+        Storage::makeDirectory($directoryPhoto);
         
         $requestData = $request->all();
+
+        if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
+
         $projet=Projet::create($requestData);
 
         $skills = Skill::find($request->input('skill_id'));
@@ -104,19 +110,23 @@ class ProjetsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $requestData = $request->all();
         
         $projet = Projet::findOrFail($id);
-        $projet->update($requestData);
 
+        $oldPhoto =$projet->image;
+        $directoryPhoto = 'projet';
+        Storage::makeDirectory($directoryPhoto);
+
+        if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
+        if( !empty($requestData['image']) ) Storage::delete($oldPhoto);
+
+        $projet->update($requestData);
 
         $skills = Skill::find($request->input('skill_id'));
 
         $projet->skills()->sync($skills);
       
-
-
         return redirect('admin/projets')->with('flash_message', 'Projet updated!');
     }
 

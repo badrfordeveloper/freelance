@@ -13,14 +13,25 @@
     </div>
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
+
+
+
 <div class="form-group row {{ $errors->has('image') ? 'has-error' : ''}}">
     <label for="image" class="col-sm-2 col-form-label">{{ 'Image' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="image" type="text" id="image" value="{{ isset($projet->image) ? $projet->image : ''}}" >
-
+    <div class="col-sm-10">
+         <div class="custom-file">
+            <input id="image" name="image" type="file" class="custom-file-input">
+            <label for="image" class="custom-file-label">Selectionez une image...</label>
+        </div> 
     </div>
     {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
 </div>
+
+
+
+
+
+
 <div class="form-group row {{ $errors->has('prix') ? 'has-error' : ''}}">
     <label for="prix" class="col-sm-2 col-form-label">{{ 'Prix' }}</label>
 	<div class="col-sm-10">
