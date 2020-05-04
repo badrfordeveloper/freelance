@@ -31,5 +31,10 @@ class Profile extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function skills()
+    {
+        return $this->belongsToMany('App\Skill');
+    }
     
 }

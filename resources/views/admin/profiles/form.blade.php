@@ -29,15 +29,53 @@
     </div>
     {!! $errors->first('experience', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group row {{ $errors->has('user_id') ? 'has-error' : ''}}">
-    <label for="user_id" class="col-sm-2 col-form-label">{{ 'User Id' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="user_id" type="number" id="user_id" value="{{ isset($profile->user_id) ? $profile->user_id : ''}}" >
 
+<div class="form-group row{{ $errors->has('user_id') ? 'has-error' : ''}}">
+    <label class="col-sm-2 col-form-label">User</label>
+
+    <div class="col-sm-10">
+        <select  class="select2 form-control custom-select" id="user_id" name="user_id" style="width: 100%; height:36px;">
+                    <option selected>Selectionnez</option>
+                    @if(count($users))
+                        @foreach($users as $obj)
+                            <option value="{{ $obj->id }}"  @if(isset($profile->user_id) && $profile->user_id== $obj->id )selected @endif>{{ $obj->username }}</option>
+                        @endforeach
+                    @endif
+        </select>
     </div>
-    {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
 </div>
 
+<div class="form-group row{{ $errors->has('skill_id') ? 'has-error' : ''}}">
+    <label class="col-sm-2 col-form-label">Skills</label>
+
+    <div class="col-sm-10">
+        <select  class="select2 form-control custom-select" id="skill_id" name="skill_id[]" multiple="multiple" style="width: 100%; height:36px;">
+            
+                    @if(count($skills))
+                        @foreach($skills as $obj)
+                            <option value="{{ $obj->id }}"  
+
+                                @if(@count($profile->skills))
+
+                                    @foreach($profile->skills as $obj2)
+
+                                        @if( $obj2->id== $obj->id )
+
+                                            selected
+
+                                        @endif
+
+                                    @endforeach
+                                @endif
+
+                                  >{{ $obj->libelle }}
+
+                            </option>
+                        @endforeach
+                    @endif
+        </select>
+    </div>
+</div>
 
 <div class="form-group row">
     <div class="col-sm-12 text-center">

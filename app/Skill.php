@@ -36,5 +36,10 @@ class Skill extends Model
     {
         return $this->belongsToMany('App\Projet');
     }
+
+    public function profiles()
+    {
+        return $this->belongsToMany('App\Profile');
+    }
     
 }

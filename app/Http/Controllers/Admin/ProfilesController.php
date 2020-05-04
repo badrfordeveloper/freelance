@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Profile;
+use App\Skill;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -34,7 +37,9 @@ class ProfilesController extends Controller
      */
     public function create()
     {
-        return view('admin.profiles.create');
+        $skills=Skill::All();
+        $users=User::All();
+        return view('admin.profiles.create',compact('skills','users'));
     }
 
     /**
@@ -48,8 +53,10 @@ class ProfilesController extends Controller
     {
         
         $requestData = $request->all();
-        
-        Profile::create($requestData);
+        $profile=Profile::create($requestData);
+
+        $skills = Skill::find($request->input('skill_id'));
+        $profile->skills()->attach($skills);
 
         return redirect('admin/profiles')->with('flash_message', 'Profile added!');
     }
@@ -78,8 +85,10 @@ class ProfilesController extends Controller
     public function edit($id)
     {
         $profile = Profile::findOrFail($id);
+        $skills=Skill::All();
+        $users=User::All();
 
-        return view('admin.profiles.edit', compact('profile'));
+        return view('admin.profiles.edit', compact('profile','skills','users'));
     }
 
     /**
@@ -98,6 +107,9 @@ class ProfilesController extends Controller
         $profile = Profile::findOrFail($id);
         $profile->update($requestData);
 
+        $skills = Skill::find($request->input('skill_id'));
+        $profile->skills()->sync($skills);
+
         return redirect('admin/profiles')->with('flash_message', 'Profile updated!');
     }
 
@@ -110,6 +122,8 @@ class ProfilesController extends Controller
      */
     public function destroy($id)
     {
+        $profile=Profile::find($id);
+        $profile->skills()->detach();
         Profile::destroy($id);
 
         return redirect('admin/profiles')->with('flash_message', 'Profile deleted!');

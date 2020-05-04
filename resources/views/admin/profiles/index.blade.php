@@ -50,14 +50,24 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Description</th><th>Status</th><th>Langues</th><th>Experience</th><th>User</th><th><i class="fa fa-wrench"></i></th>
+                                        <th>#</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Langues</th>
+                                        <th>Experience</th>
+                                        <th>User</th>
+                                        <th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($profiles as $item)
                                     <tr class="gradeX">
-                                      <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->description }}</td><td>{{ $item->status }}</td><td>{{ $item->langues }}</td><td>{{ $item->experience }}</td><td>{{ $item->user_id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->description }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>{{ $item->langues }}</td>
+                                        <td>{{ $item->experience }}</td>
+                                        <td>{{ $item->user->username }}</td>
 
 
                                          <td class="text-center">
