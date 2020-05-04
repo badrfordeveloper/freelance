@@ -20,6 +20,12 @@ Route::group(
         Route::get(Config::get('constants.ADMIN_PATH'), 'AdminController@index');
         Route::get(Config::get('constants.ADMIN_PATH').'projets', 'AdminController@index');
 		/*Route::resource(Config::get('constants.ADMIN_PATH').'categories', 'Admin\\CategoriesController');*/
+		/*=== Route Employeur ===*/
+		/*Route::get(Config::get('constants.ADMIN_PATH').'users/{role}', 'Admin\\UsersController@index');
+		Route::get(Config::get('constants.ADMIN_PATH').'users/{role}/create', 'Admin\\UsersController@create');
+		Route::post(Config::get('constants.ADMIN_PATH').'users/{role}', 'Admin\\UsersController@store');*/
+		//Route::put(Config::get('constants.ADMIN_PATH').'users/{role}', 'Admin\\UsersController@store');
+		/*======================*/
      }
 );
 Auth::routes();
@@ -39,3 +45,4 @@ Route::resource('admin/skills', 'Admin\\SkillsController');
 Route::resource('admin/skillprofiles', 'Admin\\SkillprofilesController');
 Route::resource('admin/skillprojets', 'Admin\\SkillprojetsController');
 Route::resource('admin/users', 'Admin\\UsersController');
+Route::resource('admin/employeurs', 'Admin\\EmployeursController');

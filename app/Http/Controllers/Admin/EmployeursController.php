@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\UsersController ;
 use Illuminate\Http\UplodedFile;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests;
 
 use App\User;
-use Illuminate\Http\Request;
 
-class UsersController extends Controller
+
+
+class EmployeursController extends UsersController
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +20,8 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::where("role","admin")->get();
-        $role ="admin";
+        $users = User::where("role","employeur")->get();
+        $role="employeur";
 
         return view('admin.users.index', compact('users','role'));
     }
@@ -32,7 +33,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $role="admin";
+        $role="employeur";
         return view('admin.users.create',compact('role'));
     }
 
@@ -52,14 +53,14 @@ class UsersController extends Controller
         Storage::makeDirectory($directoryCover);
 
         $requestData = $request->all();
-        $requestData['role']="admin";
+        $requestData['role']="employeur";
 
         if($request->hasFile('photo')) $requestData['photo']= $request->file('photo')->store($directoryPhoto);
         if($request->hasFile('cover')) $requestData['cover']= $request->file('cover')->store($directoryCover);
         
         User::create($requestData);
 
-        return redirect('admin/users')->with('flash_message', 'User added!');
+        return redirect('admin/employeurs')->with('flash_message', 'User added!');
     }
 
     /**
@@ -72,7 +73,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        $role="admin";
+        $role="employeur";
 
         return view('admin.users.show', compact('user','role'));
     }
@@ -87,7 +88,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $role="admin";
+        $role="employeur";
 
         return view('admin.users.edit', compact('user','role'));
     }
@@ -112,6 +113,7 @@ class UsersController extends Controller
         Storage::makeDirectory($directoryCover);
         
         $requestData = $request->all();
+
         if($request->hasFile('photo')) $requestData['photo']= $request->file('photo')->store($directoryPhoto);
         if($request->hasFile('cover')) $requestData['cover']= $request->file('cover')->store($directoryCover);
 
@@ -120,7 +122,7 @@ class UsersController extends Controller
         
         $user->update($requestData);
 
-        return redirect('admin/users')->with('flash_message', 'User updated!');
+        return redirect('admin/employeurs')->with('flash_message', 'User updated!');
     }
 
     /**
@@ -132,11 +134,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        Storage::delete($user->photo);
-        Storage::delete($user->cover);
         User::destroy($id);
 
-        return redirect('admin/users')->with('flash_message', 'User deleted!');
+        return redirect('admin/employeurs')->with('flash_message', 'User deleted!');
     }
 }

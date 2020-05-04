@@ -37,14 +37,14 @@
     </div>
     {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group row {{ $errors->has('role') ? 'has-error' : ''}}">
+<!-- <div class="form-group row {{ $errors->has('role') ? 'has-error' : ''}}">
     <label for="role" class="col-sm-2 col-form-label">{{ 'Role' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="role" type="text" id="role" value="{{ isset($user->role) ? $user->role : ''}}" >
+    <div class="col-sm-10">
+        <input class="form-control" name="role" type="text" id="role" value="{{ isset($user->role) ? $user->role : ''}}" >
 
     </div>
     {!! $errors->first('role', '<p class="help-block">:message</p>') !!}
-</div>
+</div> -->
 <div class="form-group row {{ $errors->has('photo') ? 'has-error' : ''}}">
     <label for="photo" class="col-sm-2 col-form-label">{{ 'Photo' }}</label>
 	<div class="col-sm-10">

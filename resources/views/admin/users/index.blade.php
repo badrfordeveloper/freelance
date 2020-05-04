@@ -11,13 +11,22 @@
 
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Users</h2>
+            @if($role == "admin")
+                <h2>Users</h2>
+            @else
+                <h2>Employeurs</h2>
+            @endif
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ url(Config::get('constants.ADMIN_PATH')) }}">Tableau de Board</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <strong>Users</strong>
+                    @if($role == "admin")
+                        <strong>Users</strong>
+                    @else
+                        <strong>Employeurs</strong>
+                    @endif
+
                 </li>
             </ol>
         </div>
@@ -31,11 +40,22 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>Users</h5>
+                        
+                        @if($role == "admin")
+                            <h5>Users</h5>
+                        @else
+                            <h5>Employeurs</h5>
+                        @endif
                         <div class="ibox-tools">
+                             @if($role == "admin")
                             <a class="" href="{{ url(Config::get('constants.ADMIN_PATH').'users'.'/create') }}">
                                 <i class="fa fa-plus"></i>
                             </a>
+                            @else
+                            <a class="" href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs'.'/create') }}">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            @endif
 
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -80,15 +100,28 @@
                                                 <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Actions</button>
                                                 <ul class="dropdown-menu">
                                                     <li>
+                                                        @if($role == "admin")
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'users/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
+                                                        @else
+                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
+                                                        @endif
                                                     </li>
 
                                                     <li>
+                                                        @if($role == "admin")
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'users/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
+                                                        @else
+                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
+                                                        @endif
                                                     </li>
 
                                                     <li>
-                                                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'users' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                        @if($role == "admin")
+                                                        <?php $action = url(Config::get('constants.ADMIN_PATH').'users' . '/' . $item->id)  ?>
+                                                        @else
+                                                        <?php $action = url(Config::get('constants.ADMIN_PATH').'employeurs' . '/' . $item->id)  ?>
+                                                        @endif
+                                                        <form method="POST" action="{{ $action }}" accept-charset="UTF-8" style="display:inline">
                                                             {{ method_field('DELETE') }}
                                                             {{ csrf_field() }}
                                                             <button type="submit" class="dropdown-item" title="Delete user" onclick="return confirm('Voulez vous vraiment supprimer ?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>

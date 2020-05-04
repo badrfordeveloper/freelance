@@ -8,14 +8,22 @@
 @section('content')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Users</h2>
+            @if($role == "admin")
+                <h2>Users</h2>
+            @else
+                <h2>Employeurs</h2>
+            @endif
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ url(Config::get('constants.ADMIN_PATH')) }}">Tableau de Board</a>
                 </li>
 
                 <li class="breadcrumb-item">
+                    @if($role == "admin")
                     <a href="{{ url(Config::get('constants.ADMIN_PATH').'users') }}">Users</a>
+                    @else
+                    <a href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs') }}">Employeurs</a>
+                    @endif
                 </li>
                 <li class="breadcrumb-item active">
                     <strong>Nouveau</strong>
@@ -39,7 +47,11 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>Users</h5>
+                         @if($role == "admin")
+                            <h5>User</h5>
+                        @else
+                            <h5>Employeur</h5>
+                        @endif
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -50,7 +62,12 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'users') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" autocomplete="off">
+                         @if($role == "admin")
+                            <?php $action = url(Config::get('constants.ADMIN_PATH').'users'); ?>
+                         @else
+                            <?php $action = url(Config::get('constants.ADMIN_PATH').'employeurs'); ?>
+                         @endif
+                        <form method="POST" action="{{ $action }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" autocomplete="off">
                             {{ csrf_field() }}
 
                             @include ('admin.users.form', ['formMode' => 'create'])

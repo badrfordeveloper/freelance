@@ -43,10 +43,10 @@
                     </li>
 
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'users')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Freelancers</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'freelancers')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Freelancers</span></a>
                     </li>
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'users')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Employeurs</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Employeurs</span></a>
                     </li>
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'commandes')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Commandes</span></a>

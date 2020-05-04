@@ -142,6 +142,7 @@ class ProjetsController extends Controller
     {
 
         $projet=Projet::find($id);
+        Storage::delete($projet->image);
         $projet->skills()->detach();
         Projet::destroy($id);
 
