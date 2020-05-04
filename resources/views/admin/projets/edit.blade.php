@@ -66,6 +66,14 @@
     </div>
 @endsection
 @section('script')
+
+<script type="text/javascript">
+    $('.custom-file-input').on('change', function() {
+       let fileName = $(this).val().split('\\').pop();
+       $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    }); 
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 
 <script type="text/javascript">
