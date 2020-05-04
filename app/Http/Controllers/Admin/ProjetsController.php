@@ -10,6 +10,7 @@ use App\Skill;
 use App\User;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjetsController extends Controller
 {
