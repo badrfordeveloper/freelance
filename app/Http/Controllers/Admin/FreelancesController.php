@@ -8,10 +8,11 @@ use Illuminate\Http\UplodedFile;
 use Illuminate\Support\Facades\Storage;
 
 use App\User;
+use App\Skill;
+use App\Profile;
 
 
-
-class EmployeursController extends Controller
+class FreelancesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +21,8 @@ class EmployeursController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::where("role","employeur")->get();
-        $role="employeur";
+        $users = User::where("role","freelance")->get();
+        $role="freelance";
 
         return view('admin.users.index', compact('users','role'));
     }
@@ -33,8 +34,10 @@ class EmployeursController extends Controller
      */
     public function create()
     {
-        $role="employeur";
-        return view('admin.users.create',compact('role'));
+        $role="freelance";
+        $skills=Skill::All();
+
+        return view('admin.users.create',compact('role','skills'));
     }
 
     /**
@@ -53,14 +56,33 @@ class EmployeursController extends Controller
         Storage::makeDirectory($directoryCover);
 
         $requestData = $request->all();
-        $requestData['role']="employeur";
+        $requestData['role']="freelance";
 
         if($request->hasFile('photo')) $requestData['photo']= $request->file('photo')->store($directoryPhoto);
         if($request->hasFile('cover')) $requestData['cover']= $request->file('cover')->store($directoryCover);
-        
-        User::create($requestData);
 
-        return redirect('admin/employeurs')->with('flash_message', 'User added!');
+
+
+
+        
+        if($user=User::create($requestData)){
+
+             $requestData['user_id']=$user->id;
+            
+            $profile=Profile::create($requestData);
+
+            $skills = Skill::find($request->input('skill_id'));
+            $profile->skills()->attach($skills);
+        }
+
+
+
+
+
+
+
+
+        return redirect('admin/freelances')->with('flash_message', 'User added!');
     }
 
     /**
@@ -73,7 +95,7 @@ class EmployeursController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        $role="employeur";
+        $role="freelance";
 
         return view('admin.users.show', compact('user','role'));
     }
@@ -88,9 +110,10 @@ class EmployeursController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $role="employeur";
+        $role="freelance";
+        $skills=Skill::All();
 
-        return view('admin.users.edit', compact('user','role'));
+        return view('admin.users.edit', compact('user','role','skills'));
     }
 
     /**
@@ -120,9 +143,22 @@ class EmployeursController extends Controller
         if( !empty($requestData['photo']) ) Storage::delete($oldPhoto);
         if( !empty($requestData['cover']) ) Storage::delete($oldCover);
         
-        $user->update($requestData);
+        if($user->update($requestData)){
 
-        return redirect('admin/employeurs')->with('flash_message', 'User updated!');
+            $profile = Profile::where('user_id',$id)->first();
+            $profile->update($requestData);
+
+            $skills = Skill::find($request->input('skill_id'));
+            $profile->skills()->sync($skills);
+
+        }
+
+
+
+
+
+
+        return redirect('admin/freelances')->with('flash_message', 'User updated!');
     }
 
     /**
@@ -134,8 +170,12 @@ class EmployeursController extends Controller
      */
     public function destroy($id)
     {
+
+        $profile=Profile::where('user_id',$id)->first();
+        $profile->skills()->detach();
+        
         User::destroy($id);
 
-        return redirect('admin/employeurs')->with('flash_message', 'User deleted!');
+        return redirect('admin/freelances')->with('flash_message', 'User deleted!');
     }
 }

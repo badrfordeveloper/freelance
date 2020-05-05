@@ -49,6 +49,8 @@
                     <div class="ibox-title">
                          @if($role == "admin")
                             <h5>User</h5>
+                        @elseif($role == "freelance")
+                            <h5>Freelances</h5>
                         @else
                             <h5>Employeur</h5>
                         @endif
@@ -64,13 +66,24 @@
                     <div class="ibox-content">
                          @if($role == "admin")
                             <?php $action = url(Config::get('constants.ADMIN_PATH').'users'); ?>
+
+                         @elseif($role == "freelance")
+                             <?php $action = url(Config::get('constants.ADMIN_PATH').'freelances'); ?>
                          @else
                             <?php $action = url(Config::get('constants.ADMIN_PATH').'employeurs'); ?>
                          @endif
                         <form method="POST" action="{{ $action }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" autocomplete="off">
                             {{ csrf_field() }}
 
+                            @if($role == "freelance")
+                            
+                                 @include ('admin.users.formfreelances', ['formMode' => 'create'])
+
+                            @else
+
                             @include ('admin.users.form', ['formMode' => 'create'])
+
+                            @endif
 
                         </form>
                     </div>

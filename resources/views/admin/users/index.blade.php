@@ -13,6 +13,8 @@
         <div class="col-lg-10">
             @if($role == "admin")
                 <h2>Users</h2>
+            @elseif($role == "freelance")
+                <h5>Freelances</h5>
             @else
                 <h2>Employeurs</h2>
             @endif
@@ -23,6 +25,8 @@
                 <li class="breadcrumb-item active">
                     @if($role == "admin")
                         <strong>Users</strong>
+                    @elseif($role == "freelance")
+                        <h5>Freelances</h5>
                     @else
                         <strong>Employeurs</strong>
                     @endif
@@ -43,6 +47,8 @@
                         
                         @if($role == "admin")
                             <h5>Users</h5>
+                         @elseif($role == "freelance")
+                            <h5>Freelances</h5>
                         @else
                             <h5>Employeurs</h5>
                         @endif
@@ -51,6 +57,12 @@
                             <a class="" href="{{ url(Config::get('constants.ADMIN_PATH').'users'.'/create') }}">
                                 <i class="fa fa-plus"></i>
                             </a>
+
+                             @elseif($role == "freelance")
+                            <a class="" href="{{ url(Config::get('constants.ADMIN_PATH').'freelances'.'/create') }}">
+                                <i class="fa fa-plus"></i>
+                            </a>
+
                             @else
                             <a class="" href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs'.'/create') }}">
                                 <i class="fa fa-plus"></i>
@@ -102,6 +114,8 @@
                                                     <li>
                                                         @if($role == "admin")
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'users/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
+                                                        @elseif($role == "freelance")
+                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'freelances/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
                                                         @else
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
                                                         @endif
@@ -110,6 +124,9 @@
                                                     <li>
                                                         @if($role == "admin")
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'users/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
+
+                                                         @elseif($role == "freelance")
+                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'freelances/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
                                                         @else
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
                                                         @endif
@@ -118,6 +135,8 @@
                                                     <li>
                                                         @if($role == "admin")
                                                         <?php $action = url(Config::get('constants.ADMIN_PATH').'users' . '/' . $item->id)  ?>
+                                                          @elseif($role == "freelance")
+                                                            <?php $action = url(Config::get('constants.ADMIN_PATH').'freelances' . '/' . $item->id)  ?>
                                                         @else
                                                         <?php $action = url(Config::get('constants.ADMIN_PATH').'employeurs' . '/' . $item->id)  ?>
                                                         @endif

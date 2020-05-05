@@ -50,6 +50,8 @@
                     <div class="ibox-title">
                          @if($role == "admin")
                             <h5>User</h5>
+                        @elseif($role == "freelance")
+                            <h5>Freelances</h5>
                         @else
                             <h5>Employeur</h5>
                         @endif
@@ -65,6 +67,8 @@
                     <div class="ibox-content">
                         @if($role == "admin")
                             <?php $action = url(Config::get('constants.ADMIN_PATH').'users/' . $user->id); ?>
+                        @elseif($role == "freelance")
+                            <?php $action = url(Config::get('constants.ADMIN_PATH').'freelances/' . $user->id); ?>
                          @else
                             <?php $action = url(Config::get('constants.ADMIN_PATH').'employeurs/' . $user->id); ?>
                         @endif
@@ -72,7 +76,18 @@
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                            @include ('admin.users.form', ['formMode' => 'edit'])
+                           
+
+
+                            @if($role == "freelance")
+                            
+                                 @include ('admin.users.formfreelances', ['formMode' => 'edit'])
+
+                            @else
+
+                             @include ('admin.users.form', ['formMode' => 'edit'])
+
+                            @endif
 
                         </form>
                     </div>

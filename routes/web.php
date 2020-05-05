@@ -46,3 +46,4 @@ Route::resource('admin/skillprofiles', 'Admin\\SkillprofilesController');
 Route::resource('admin/skillprojets', 'Admin\\SkillprojetsController');
 Route::resource('admin/users', 'Admin\\UsersController');
 Route::resource('admin/employeurs', 'Admin\\EmployeursController');
+Route::resource('admin/freelances', 'Admin\\FreelancesController');

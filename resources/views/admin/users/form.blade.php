@@ -77,7 +77,7 @@
 <div class="form-group row {{ $errors->has('dateNaissance') ? 'has-error' : ''}}">
     <label for="dateNaissance" class="col-sm-2 col-form-label">{{ 'Datenaissance' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="dateNaissance" type="datetime-local" id="dateNaissance" value="{{ isset($user->dateNaissance) ? $user->dateNaissance : ''}}" >
+    	<input class="form-control" name="dateNaissance" type="datetime-local" id="dateNaissance" value="{{ isset($user->dateNaissance) ?  \Carbon\Carbon::parse($user->dateNaissance)->toDatetimelocalString() : ''}}" >
     </div>
     {!! $errors->first('dateNaissance', '<p class="help-block">:message</p>') !!}
 </div>

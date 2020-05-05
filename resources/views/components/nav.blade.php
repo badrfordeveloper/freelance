@@ -43,7 +43,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'freelancers')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Freelancers</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'freelances')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Freelancers</span></a>
                     </li>
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Employeurs</span></a>
