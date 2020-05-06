@@ -15,11 +15,9 @@ class CreateProjetSkillTable extends Migration
     {
         Schema::create('projet_skill', function (Blueprint $table) {
             $table->id();
-            $table->integer('skill_id')->unsigned();
-            $table->integer('projet_id')->unsigned();
-            $table->foreign('projet_id')->references('id')->on('projets')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade')->onUpdate('cascade');
-
+            
+            $table->foreignId('skill_id')->constrained('skills')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('projet_id')->constrained('projets')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

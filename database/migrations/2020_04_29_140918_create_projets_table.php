@@ -13,8 +13,7 @@ class CreateProjetsTable extends Migration
     public function up()
     {
         Schema::create('projets', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->id();
             $table->string('titre')->nullable();
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
@@ -24,10 +23,11 @@ class CreateProjetsTable extends Migration
             $table->string('etat')->nullable();
             $table->string('status')->nullable();
             $table->string('type')->nullable();
-            $table->integer('categorie_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('categorie_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
+            
             });
     }
 

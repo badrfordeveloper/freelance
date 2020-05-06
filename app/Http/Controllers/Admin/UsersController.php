@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\UplodedFile;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Hash;
 
 use App\User;
 use Illuminate\Http\Request;
@@ -53,6 +54,7 @@ class UsersController extends Controller
 
         $requestData = $request->all();
         $requestData['role']="admin";
+        $requestData['password']=Hash::make( $requestData['password']);
 
         if($request->hasFile('photo')) $requestData['photo']= $request->file('photo')->store($directoryPhoto);
         if($request->hasFile('cover')) $requestData['cover']= $request->file('cover')->store($directoryCover);
@@ -117,6 +119,8 @@ class UsersController extends Controller
 
         if( !empty($requestData['photo']) ) Storage::delete($oldPhoto);
         if( !empty($requestData['cover']) ) Storage::delete($oldCover);
+
+      
         
         $user->update($requestData);
 

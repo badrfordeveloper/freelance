@@ -14,7 +14,7 @@
             @if($role == "admin")
                 <h2>Users</h2>
             @elseif($role == "freelance")
-                <h5>Freelances</h5>
+                <h2>Freelances</h2>
             @else
                 <h2>Employeurs</h2>
             @endif
@@ -26,7 +26,7 @@
                     @if($role == "admin")
                         <strong>Users</strong>
                     @elseif($role == "freelance")
-                        <h5>Freelances</h5>
+                        <strong>Freelances</strong>
                     @else
                         <strong>Employeurs</strong>
                     @endif

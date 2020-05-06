@@ -10,6 +10,8 @@
         <div class="col-lg-10">
             @if($role == "admin")
                 <h2>Users</h2>
+            @elseif($role == "freelance")
+                <h2>Freelances</h2>
             @else
                 <h2>Employeurs</h2>
             @endif
@@ -21,6 +23,8 @@
                 <li class="breadcrumb-item">
                     @if($role == "admin")
                     <a href="{{ url(Config::get('constants.ADMIN_PATH').'users') }}">Users</a>
+                    @elseif($role == "freelance")
+                    <a href="{{ url(Config::get('constants.ADMIN_PATH').'freelances') }}">Freelances</a>
                     @else
                     <a href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs') }}">Employeurs</a>
                     @endif

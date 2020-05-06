@@ -50,6 +50,10 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         
+        $request->validate([
+                    'libelle' => 'required|min:5|numeric',
+                ]);
+
         $requestData = $request->all();
         
         Category::create($requestData);

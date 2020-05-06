@@ -40,6 +40,9 @@ $profile=$user->profile;
                 </div>
                 {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
             </div>
+
+            @if($formMode == 'create')
+
             <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
                 <label for="password" class="col-sm-2 col-form-label">{{ 'Password' }}</label>
                 <div class="col-sm-10">
@@ -48,6 +51,9 @@ $profile=$user->profile;
                 </div>
                 {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
             </div>
+
+            @endif
+            
             <!-- <div class="form-group row {{ $errors->has('role') ? 'has-error' : ''}}">
                 <label for="role" class="col-sm-2 col-form-label">{{ 'Role' }}</label>
                 <div class="col-sm-10">

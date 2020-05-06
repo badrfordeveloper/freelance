@@ -15,12 +15,12 @@ class CreateProfileSkill extends Migration
     {
         Schema::create('profile_skill', function (Blueprint $table) {
             $table->id();
-            $table->integer('skill_id')->unsigned();
-            $table->integer('profile_id')->unsigned();
-            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade')->onUpdate('cascade');
-
+            
+            $table->foreignId('skill_id')->constrained('skills')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+
+            
         });
     }
 

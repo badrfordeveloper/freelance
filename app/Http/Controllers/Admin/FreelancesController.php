@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\UplodedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 use App\User;
 use App\Skill;
@@ -60,6 +61,7 @@ class FreelancesController extends Controller
 
         if($request->hasFile('photo')) $requestData['photo']= $request->file('photo')->store($directoryPhoto);
         if($request->hasFile('cover')) $requestData['cover']= $request->file('cover')->store($directoryCover);
+        $requestData['password']=Hash::make( $requestData['password']);
 
 
 
@@ -171,8 +173,6 @@ class FreelancesController extends Controller
     public function destroy($id)
     {
 
-        $profile=Profile::where('user_id',$id)->first();
-        $profile->skills()->detach();
         
         User::destroy($id);
 

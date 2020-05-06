@@ -57,6 +57,7 @@ class EmployeursController extends Controller
 
         if($request->hasFile('photo')) $requestData['photo']= $request->file('photo')->store($directoryPhoto);
         if($request->hasFile('cover')) $requestData['cover']= $request->file('cover')->store($directoryCover);
+        $requestData['password']=Hash::make( $requestData['password']);
         
         User::create($requestData);
 

@@ -13,14 +13,14 @@ class CreateCommandesTable extends Migration
     public function up()
     {
         Schema::create('commandes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->id();
             $table->longText('description')->nullable();
             $table->string('status')->nullable();
-            $table->integer('projet_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('projet_id')->references('id')->on('projets')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('projet_id')->constrained('projets')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
+            
             });
     }
 

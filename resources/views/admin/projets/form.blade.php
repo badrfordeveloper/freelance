@@ -43,14 +43,14 @@
 <div class="form-group row {{ $errors->has('dateDebut') ? 'has-error' : ''}}">
     <label for="dateDebut" class="col-sm-2 col-form-label">{{ 'Datedebut' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="dateDebut" type="datetime-local" id="dateDebut" value="{{ isset($projet->dateDebut) ? $projet->dateDebut : ''}}" >
+    	<input class="form-control" name="dateDebut" type="datetime-local" id="dateDebut" value="{{ isset($projet->dateDebut) ?  \Carbon\Carbon::parse( $projet->dateDebut )->toDatetimelocalString(): ''}}" >
     </div>
     {!! $errors->first('dateDebut', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group row {{ $errors->has('dateFin') ? 'has-error' : ''}}">
     <label for="dateFin" class="col-sm-2 col-form-label">{{ 'Datefin' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="dateFin" type="datetime-local" id="dateFin" value="{{ isset($projet->dateFin) ? $projet->dateFin : ''}}" >
+    	<input class="form-control" name="dateFin" type="datetime-local" id="dateFin" value="{{ isset($projet->dateFin) ? \Carbon\Carbon::parse( $projet->dateFin )->toDatetimelocalString() : ''}}" >
     </div>
     {!! $errors->first('dateFin', '<p class="help-block">:message</p>') !!}
 </div>
