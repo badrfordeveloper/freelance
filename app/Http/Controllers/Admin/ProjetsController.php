@@ -53,6 +53,18 @@ class ProjetsController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+                    'titre' => 'required|min:3',
+                    'description' => 'required|min:3',
+                    'prix' => 'required',
+                    'dateDebut' => 'required|date',
+                    'dateFin' => 'required|date',
+                    'etat' => 'required',
+                    'status' => 'required',
+                    'categorie_id' => 'required',
+                    'user_id' => 'required',
+                ]);
+
         $directoryPhoto = 'projet';
         Storage::makeDirectory($directoryPhoto);
         
@@ -111,6 +123,19 @@ class ProjetsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+                    'titre' => 'required|min:3',
+                    'description' => 'required|min:3',
+                    'prix' => 'required',
+                    'dateDebut' => 'required|date',
+                    'dateFin' => 'required|date',
+                    'etat' => 'required',
+                    'status' => 'required',
+                    'categorie_id' => 'required',
+                    'user_id' => 'required',
+                ]);
+        
         $requestData = $request->all();
         
         $projet = Projet::findOrFail($id);

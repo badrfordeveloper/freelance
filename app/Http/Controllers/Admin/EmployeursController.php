@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\UplodedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 use App\User;
 
@@ -46,6 +47,19 @@ class EmployeursController extends Controller
      */
     public function store(Request $request)
     {
+
+           $request->validate([
+                    'nom' => 'required|min:3',
+                    'prenom' => 'required|min:3',
+                    'username' => 'required|min:3',
+                    'email' => 'required|email',
+                     'password' => 'required|min:3',
+                    'tel' => 'required',
+                    'dateNaissance' => 'required|date',
+                    'tel' => 'required',
+                    'adresse' => 'required|min:10',
+                ]);
+
 
         $directoryPhoto = 'photos';
         $directoryCover = 'covers';
@@ -104,6 +118,19 @@ class EmployeursController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+           $request->validate([
+                    'nom' => 'required|min:3',
+                    'prenom' => 'required|min:3',
+                    'username' => 'required|min:3',
+                    'email' => 'required|email',
+                    'tel' => 'required',
+                    'dateNaissance' => 'required|date',
+                    'tel' => 'required',
+                    'adresse' => 'required|min:10',
+                ]);
+
+
         $user = User::findOrFail($id);
         $oldPhoto =$user->photo;
         $oldCover = $user->cover;
