@@ -51,6 +51,10 @@ class SkillsController extends Controller
      */
     public function store(Request $request)
     {
+            $request->validate([
+                    'libelle' => 'required|min:3',
+                    'categorie_id' => 'required',
+                ]);
         
         $requestData = $request->all();
         
@@ -98,7 +102,11 @@ class SkillsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+           $request->validate([
+                    'libelle' => 'required|min:3',
+                    'categorie_id' => 'required',
+                ]);
+           
         $requestData = $request->all();
         
         $skill = Skill::findOrFail($id);

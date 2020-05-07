@@ -51,7 +51,7 @@ class CategoriesController extends Controller
     {
         
         $request->validate([
-                    'libelle' => 'required|min:5|numeric',
+                    'libelle' => 'required|min:3',
                 ]);
 
         $requestData = $request->all();
@@ -84,6 +84,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
+     
+
         $category = Category::findOrFail($id);
 
         return view('admin.categories.edit', compact('category'));
@@ -99,7 +101,10 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+            $request->validate([
+                    'libelle' => 'required|min:3',
+                ]);
+            
         $requestData = $request->all();
         
         $category = Category::findOrFail($id);

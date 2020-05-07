@@ -53,7 +53,14 @@ class CommandesController extends Controller
      */
     public function store(Request $request)
     {
+         $request->validate([
+                    'description' => 'required|min:10',
+                    'status' => 'required',
+                    'projet_id' => 'required',
+                    'user_id' => 'required',
+                ]);
         
+
         $requestData = $request->all();
         
         Commande::create($requestData);
@@ -102,7 +109,14 @@ class CommandesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+         $request->validate([
+                    'description' => 'required|min:10',
+                    'status' => 'required',
+                    'projet_id' => 'required',
+                    'user_id' => 'required',
+                ]);
+
+         
         $requestData = $request->all();
         
         $commande = Commande::findOrFail($id);

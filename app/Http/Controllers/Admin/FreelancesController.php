@@ -51,6 +51,22 @@ class FreelancesController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+                    'nom' => 'required|min:3',
+                    'prenom' => 'required|min:3',
+                    'username' => 'required|min:3',
+                    'email' => 'required|email',
+                    'password' => 'required|min:3',
+                    'tel' => 'required',
+                    'dateNaissance' => 'required|date',
+                    'tel' => 'required',
+                    'adresse' => 'required|min:10',
+                    'skill_id' => 'required',
+                ]);
+
+
+
+
         $directoryPhoto = 'photos';
         $directoryCover = 'covers';
         Storage::makeDirectory($directoryPhoto);
@@ -128,6 +144,19 @@ class FreelancesController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+            $request->validate([
+                    'nom' => 'required|min:3',
+                    'prenom' => 'required|min:3',
+                    'username' => 'required|min:3',
+                    'email' => 'required|email',
+                    'tel' => 'required',
+                    'dateNaissance' => 'required|date',
+                    'tel' => 'required',
+                    'adresse' => 'required|min:10',
+                    'skill_id' => 'required',
+                ]);
+
         $user = User::findOrFail($id);
         $oldPhoto =$user->photo;
         $oldCover = $user->cover;
