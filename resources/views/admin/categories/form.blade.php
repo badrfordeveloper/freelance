@@ -2,14 +2,9 @@
     <label for="libelle" class="col-sm-2 col-form-label">{{ 'Libelle' }}</label>
 	<div class="col-sm-10">
     	<input class="form-control" name="libelle" type="text" id="libelle" value="{{ isset($category->libelle) ? $category->libelle : old('libelle') }}" >
+
+        {!! $errors->first('libelle', '<p class="help-block">:message</p>') !!}
     	
-                   @if ($errors->any())
-				        <ul class="alert alert-danger">
-				            @foreach ($errors->get('libelle') as $error)
-				                <li>{{ $error }}</li>
-				            @endforeach
-				        </ul>
-				    @endif
     </div>
     
 </div>

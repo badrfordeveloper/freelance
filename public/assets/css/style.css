@@ -3293,11 +3293,7 @@ select.form-control:not([size]):not([multiple]) {
   height: 300px;
 }
 /* Validation */
-label.error {
-  color: #cc5965;
-  display: inline-block;
-  margin-left: 5px;
-}
+
 .form-control.error {
   border: 1px dotted #cc5965;
 }
@@ -9553,3 +9549,16 @@ body.md-skin {
     margin: 0;
   }
 }
+
+label.error,.help-block{
+  display: inline-block;
+  color: #ed5565;
+   margin-left: 5px;
+  font-weight: 500;
+  font-size: 12px;
+}
+/* label.error {
+  color: #cc5965;
+  display: inline-block;
+ 
+} */

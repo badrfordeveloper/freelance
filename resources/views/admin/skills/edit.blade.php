@@ -26,14 +26,6 @@
         </div>
     </div>
 
-    @if ($errors->any())
-        <ul class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-12">
@@ -50,7 +42,7 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'skills/' . $skill->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" autocomplete="off">
+                        <form method="POST" id="formSkills" action="{{ url(Config::get('constants.ADMIN_PATH').'skills/' . $skill->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" autocomplete="off">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
@@ -65,11 +57,28 @@
 @endsection
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
-
 <script type="text/javascript">
             $( ".select2" ).select2({
             maximumInputLength: 20 // only allow terms up to 20 characters long
         });
 </script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    $("#formSkills").validate({
+        rules: {
+            // compound rule
+            libelle: {
+              required: true,
+            }
+        },
+        messages: {
+            libelle: {
+              required: "Ce champ est obligatoire !",
+            }
+        }
+    });
+</script>
+
 @endsection
 

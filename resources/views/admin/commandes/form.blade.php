@@ -1,14 +1,14 @@
 <div class="form-group row {{ $errors->has('description') ? 'has-error' : ''}}">
     <label for="description" class="col-sm-2 col-form-label">{{ 'Description' }}</label>
 	<div class="col-sm-10">
-    	<textarea class="form-control" rows="5" name="description" type="textarea" id="description" >{{ isset($commande->description) ? $commande->description : ''}}</textarea>
+    	<textarea class="form-control" rows="5" name="description" type="textarea" id="description" >{{ isset($commande->description) ? $commande->description : old('description') }}</textarea>
     </div>
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group row {{ $errors->has('status') ? 'has-error' : ''}}">
     <label for="status" class="col-sm-2 col-form-label">{{ 'Status' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="status" type="text" id="status" value="{{ isset($commande->status) ? $commande->status : ''}}" >
+    	<input class="form-control" name="status" type="text" id="status" value="{{ isset($commande->status) ? $commande->status : old('status') }}" >
 
     </div>
     {!! $errors->first('status', '<p class="help-block">:message</p>') !!}

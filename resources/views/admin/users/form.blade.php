@@ -1,7 +1,7 @@
 <div class="form-group row {{ $errors->has('nom') ? 'has-error' : ''}}">
     <label for="nom" class="col-sm-2 col-form-label">{{ 'Nom' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="nom" type="text" id="nom" value="{{ isset($user->nom) ? $user->nom : ''}}" >
+    	<input class="form-control" name="nom" type="text" id="nom" value="{{ isset($user->nom) ? $user->nom : old('nom')}}" >
 
     </div>
     {!! $errors->first('nom', '<p class="help-block">:message</p>') !!}
@@ -9,7 +9,7 @@
 <div class="form-group row {{ $errors->has('prenom') ? 'has-error' : ''}}">
     <label for="prenom" class="col-sm-2 col-form-label">{{ 'Prenom' }}</label>
 	<div class="col-sm-10">
-        <input class="form-control" name="prenom" type="text" id="prenom" value="{{ isset($user->prenom) ? $user->prenom : ''}}" >
+        <input class="form-control" name="prenom" type="text" id="prenom" value="{{ isset($user->prenom) ? $user->prenom : old('prenom')}}" >
     </div>
     {!! $errors->first('prenom', '<p class="help-block">:message</p>') !!}
 </div>
@@ -24,7 +24,7 @@
 <div class="form-group row {{ $errors->has('email') ? 'has-error' : ''}}">
     <label for="email" class="col-sm-2 col-form-label">{{ 'Email' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="email" type="text" id="email" value="{{ isset($user->email) ? $user->email : ''}}" >
+    	<input class="form-control" name="email" type="text" id="email" value="{{ isset($user->email) ? $user->email : old('email')}}" >
 
     </div>
     {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
