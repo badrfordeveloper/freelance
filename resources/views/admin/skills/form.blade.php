@@ -12,7 +12,7 @@
 
     <div class="col-sm-10">
         <select  class="select2 form-control custom-select" id="categorie_id" name="categorie_id" style="width: 100%; height:36px;">
-                    <option selected>Selectionnez</option>
+                    <option value="" selected>Selectionnez</option>
                     @if(count($categories))
                         @foreach($categories as $obj)
                             <option value="{{ $obj->id }}"  @if(isset($skill->categorie_id) && $skill->categorie_id== $obj->id )selected @endif>{{ $obj->libelle }}</option>

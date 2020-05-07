@@ -65,7 +65,13 @@
 <div class="form-group row {{ $errors->has('status') ? 'has-error' : ''}}">
     <label for="status" class="col-sm-2 col-form-label">{{ 'Status' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="status" type="text" id="status" value="{{ isset($projet->status) ? $projet->status : old('status')}}" >
+        <select  class="select2 form-control custom-select" id="status" name="status" style="width: 100%; height:36px;">
+                    <option value="" {{ !isset($projet->status) ? 'selected' : '' }} >Selectionnez</option>
+                    <option value="En cours" {{ @$projet->status == "En cours" ? 'selected' : '' }} >En cours</option>
+                    <option value="Valider" {{ @$projet->status == "Valider" ? 'selected' : '' }} >Valider</option>
+                    <option value="Refuser" {{ @$projet->status == "Refuser" ? 'selected' : '' }} >Refuser</option>
+                   
+        </select>
 
     </div>
     {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
@@ -83,7 +89,7 @@
 
     <div class="col-sm-10">
         <select  class="select2 form-control custom-select" id="categorie_id" name="categorie_id" style="width: 100%; height:36px;">
-                    <option selected>Selectionnez</option>
+                    <option value="" selected>Selectionnez</option>
                     @if(count($categories))
                         @foreach($categories as $obj)
                             <option value="{{ $obj->id }}"  @if(isset($projet->categorie_id) && $projet->categorie_id== $obj->id )selected @endif>{{ $obj->libelle }}</option>
@@ -98,7 +104,7 @@
 
     <div class="col-sm-10">
         <select  class="select2 form-control custom-select" id="user_id" name="user_id" style="width: 100%; height:36px;">
-                    <option selected>Selectionnez</option>
+                    <option value="" selected>Selectionnez</option>
                     @if(count($users))
                         @foreach($users as $obj)
                             <option value="{{ $obj->id }}"  @if(isset($projet->user_id) && $projet->user_id== $obj->id )selected @endif>{{ $obj->username }}</option>
