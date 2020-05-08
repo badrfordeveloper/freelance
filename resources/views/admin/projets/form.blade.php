@@ -2,16 +2,18 @@
     <label for="titre" class="col-sm-2 col-form-label">{{ 'Titre' }}</label>
 	<div class="col-sm-10">
     	<input class="form-control" name="titre" type="text" id="titre" value="{{ isset($projet->titre) ? $projet->titre : old('titre')}}" >
+         {!! $errors->first('titre', '<p class="help-block">:message</p>') !!}
 
     </div>
-    {!! $errors->first('titre', '<p class="help-block">:message</p>') !!}
+   
 </div>
 <div class="form-group row {{ $errors->has('description') ? 'has-error' : ''}}">
     <label for="description" class="col-sm-2 col-form-label">{{ 'Description' }}</label>
 	<div class="col-sm-10">
     	<textarea class="form-control" rows="5" name="description" type="textarea" id="description" >{{ isset($projet->description) ? $projet->description : old('description')}}</textarea>
+         {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
     </div>
-    {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
+   
 </div>
 
 
@@ -23,8 +25,9 @@
             <input id="image" name="image" type="file" class="custom-file-input">
             <label for="image" class="custom-file-label">Selectionez une image...</label>
         </div> 
+           {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
     </div>
-    {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
+ 
 </div>
 
 
@@ -36,31 +39,35 @@
     <label for="prix" class="col-sm-2 col-form-label">{{ 'Prix' }}</label>
 	<div class="col-sm-10">
     	<input class="form-control" name="prix" type="number" id="prix" value="{{ isset($projet->prix) ? $projet->prix : old('prix')}}" >
+         {!! $errors->first('prix', '<p class="help-block">:message</p>') !!}
 
     </div>
-    {!! $errors->first('prix', '<p class="help-block">:message</p>') !!}
+   
 </div>
 <div class="form-group row {{ $errors->has('dateDebut') ? 'has-error' : ''}}">
     <label for="dateDebut" class="col-sm-2 col-form-label">{{ 'Datedebut' }}</label>
 	<div class="col-sm-10">
     	<input class="form-control" name="dateDebut" type="datetime-local" id="dateDebut" value="{{ isset($projet->dateDebut) ?  \Carbon\Carbon::parse( $projet->dateDebut )->toDatetimelocalString(): old('dateDebut')}}" >
+         {!! $errors->first('dateDebut', '<p class="help-block">:message</p>') !!}
     </div>
-    {!! $errors->first('dateDebut', '<p class="help-block">:message</p>') !!}
+   
 </div>
 <div class="form-group row {{ $errors->has('dateFin') ? 'has-error' : ''}}">
     <label for="dateFin" class="col-sm-2 col-form-label">{{ 'Datefin' }}</label>
 	<div class="col-sm-10">
     	<input class="form-control" name="dateFin" type="datetime-local" id="dateFin" value="{{ isset($projet->dateFin) ? \Carbon\Carbon::parse( $projet->dateFin )->toDatetimelocalString() : old('dateFin')}}" >
+          {!! $errors->first('dateFin', '<p class="help-block">:message</p>') !!}
     </div>
-    {!! $errors->first('dateFin', '<p class="help-block">:message</p>') !!}
+  
 </div>
 <div class="form-group row {{ $errors->has('etat') ? 'has-error' : ''}}">
     <label for="etat" class="col-sm-2 col-form-label">{{ 'Etat' }}</label>
 	<div class="col-sm-10">
     	<input class="form-control" name="etat" type="text" id="etat" value="{{ isset($projet->etat) ? $projet->etat : old('etat')}}" >
+         {!! $errors->first('etat', '<p class="help-block">:message</p>') !!}
 
     </div>
-    {!! $errors->first('etat', '<p class="help-block">:message</p>') !!}
+   
 </div>
 <div class="form-group row {{ $errors->has('status') ? 'has-error' : ''}}">
     <label for="status" class="col-sm-2 col-form-label">{{ 'Status' }}</label>
@@ -73,18 +80,19 @@
                    
         </select>
 
+         {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+
     </div>
-    {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group row {{ $errors->has('type') ? 'has-error' : ''}}">
     <label for="type" class="col-sm-2 col-form-label">{{ 'Type' }}</label>
 	<div class="col-sm-10">
     	<input class="form-control" name="type" type="text" id="type" value="{{ isset($projet->type) ? $projet->type : old('type')}}" >
-
+        {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
     </div>
-    {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
+  
 </div>
-<div class="form-group row{{ $errors->has('categorie_id') ? 'has-error' : ''}}">
+<div class="form-group row {{ $errors->has('categorie_id') ? 'has-error' : ''}}">
     <label class="col-sm-2 col-form-label">Categorie</label>
 
     <div class="col-sm-10">
@@ -96,10 +104,12 @@
                         @endforeach
                     @endif
         </select>
+
+        {!! $errors->first('categorie_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 
-<div class="form-group row{{ $errors->has('user_id') ? 'has-error' : ''}}">
+<div class="form-group row {{ $errors->has('user_id') ? 'has-error' : ''}}">
     <label class="col-sm-2 col-form-label">User</label>
 
     <div class="col-sm-10">
@@ -111,11 +121,12 @@
                         @endforeach
                     @endif
         </select>
+        {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 
 
-<div class="form-group row{{ $errors->has('skill_id') ? 'has-error' : ''}}">
+<div class="form-group row {{ $errors->has('skill_id') ? 'has-error' : ''}}">
     <label class="col-sm-2 col-form-label">Skills</label>
 
     <div class="col-sm-10">
@@ -136,17 +147,14 @@
                                         @endif
 
                                     @endforeach
-                                @endif
-
-
-
-                                  >{{ $obj->libelle }}
+                                @endif  >{{ $obj->libelle }}
 
 
                             </option>
                         @endforeach
                     @endif
         </select>
+         {!! $errors->first('skill_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

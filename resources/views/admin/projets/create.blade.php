@@ -74,7 +74,7 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
 <script type="text/javascript">
-    $("#formProjet").validate({
+    /*$("#formProjet").validate({
         rules: {
             // compound rule
             titre : {
@@ -116,7 +116,7 @@
             }
         }
            
-    });
+    });*/
     // add the rule here
     $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg !== value;

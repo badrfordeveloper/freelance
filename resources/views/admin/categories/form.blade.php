@@ -15,4 +15,3 @@
         <button class="btn btn-primary btn-sm" type="submit">{{ $formMode === 'edit' ? 'Modifier' : 'Ajouter' }}</button>
     </div>
 </div>
-
