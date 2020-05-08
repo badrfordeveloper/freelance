@@ -5,7 +5,7 @@
                         <div class="dropdown profile-element">
                             <img alt="image" class="rounded-circle" src="{{ asset('assets/img/profile_small.jpg') }}"/>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span>
+                                <span class="block m-t-xs font-bold">@auth {{ Auth::user()->nom }} @endauth</span>
                                 <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
