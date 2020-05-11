@@ -142,9 +142,16 @@ $profile=$user->profile;
         <div class="form-group row {{ $errors->has('status') ? 'has-error' : ''}}">
             <label for="status" class="col-sm-2 col-form-label">{{ 'Status' }}</label>
             <div class="col-sm-10">
-                <input class="form-control" name="status" type="text" id="status" value="{{ isset($profile->status) ? $profile->status : old('status')}}" >
+                <select  class="select2 form-control custom-select" id="status" name="status" style="width: 100%; height:36px;">
+                         
+                            <option value="En cours" {{ @$projet->status == "En cours" ? 'selected' : '' }} >En cours</option>
+                            <option value="Valider" {{ @$projet->status == "Valider" ? 'selected' : '' }} >Valider</option>
+                            <option value="Refuser" {{ @$projet->status == "Refuser" ? 'selected' : '' }} >Refuser</option>
+                           
+                </select>
 
-            {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+                 {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+
             </div>
         </div>
         <div class="form-group row {{ $errors->has('langues') ? 'has-error' : ''}}">

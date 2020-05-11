@@ -105,6 +105,9 @@
 </script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+
+
+
 <script type="text/javascript">
      $("#formUser").validate({
         rules: {
@@ -144,6 +147,11 @@
               required: true,
               minlength : 3,
             },
+            @if($role == "freelance")
+                  skill_id[]: {
+                              required: true,
+                            },
+             @endif
         }
     });
     // add the rule here
