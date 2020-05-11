@@ -148,7 +148,7 @@
               minlength : 3,
             },
             @if($role == "freelance")
-                  skill_id[]: {
+                  "skill_id[]": {
                               required: true,
                             },
              @endif

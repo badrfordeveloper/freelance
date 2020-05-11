@@ -148,6 +148,11 @@
               required: true,
               minlength : 3,
             },
+                @if($role == "freelance")
+                  "skill_id[]": {
+                              required: true,
+                            },
+             @endif
         }
     });
     // add the rule here
