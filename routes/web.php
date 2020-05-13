@@ -30,11 +30,15 @@ Route::group(
 );
 Auth::routes();
 
-Route::get('/', 'publics\\PublicController@index')->name('home');
+Route::get('/', 'publics\\PublicController@index');
 
 Auth::routes();
 
 Route::get('/home', 'publics\\PublicController@index')->name('home');
+Route::get('/contact', 'publics\\PublicController@contact');
+Route::get('/find-job', 'publics\\PublicController@findJob');
+Route::get('/find-profil', 'publics\\PublicController@findProfil');
+Route::get('/post-job', 'publics\\PublicController@postJob');
 
 
 Route::resource('admin/categories', 'Admin\\CategoriesController');

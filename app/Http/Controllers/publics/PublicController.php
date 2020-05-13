@@ -18,6 +18,27 @@ class PublicController extends Controller
 
     }
 
+    public function findJob()
+    {
+     return view('public.find_job');
+
+    }
+    public function findProfil()
+    {
+     return view('public.find_profil');
+
+    }
+    public function postJob()
+    {
+     return view('public.post_job');
+
+    }
+    public function contact()
+    {
+     return view('public.contact');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

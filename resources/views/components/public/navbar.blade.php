@@ -167,59 +167,23 @@
 								<div class="collapse navbar-collapse d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end bg-dark1 p-3 p-lg-0 mt1-5 mt-lg-0 mobileMenu" id="navbarSupportedContent">
 									<ul class="navbar-nav align-self-stretch">
 										<li class="nav-item active">
-											<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+											<a class="nav-link" href="{{ url('/') }}">Accueil <span class="sr-only">(current)</span></a>
 										</li>
-										<li class="nav-item dropdown">
-											<a href="#" class="nav-link dropdown-toggle-no-caret" role="button" data-toggle="dropdown">Find Jobs</a>
-											<div class="dropdown-menu pages-dropdown">
-												<a class="link-item" href="browse_jobs.html">Browse Jobs</a>
-												<a class="link-item" href="job_single_view.html">Single Job View</a>											
-												<a class="link-item" href="post_a_job.html">Post a Job</a>																																																												
-											</div>
-										</li>									
-										<li class="nav-item dropdown">
-											<a href="#" class="nav-link dropdown-toggle-no-caret" role="button" data-toggle="dropdown">Find Profiles</a>
-											<div class="dropdown-menu pages-dropdown">
-												<a class="link-item" href="browse_profiles.html">Browse Profiles</a>
-												<a class="link-item" href="other_doctor_profile.html">Doctor Profile</a>																																																																								
-												<a class="link-item" href="other_patient_profile.html">Patient Profile</a>																																																																								
-											</div>
+										<li class="nav-item active">
+											<a class="nav-link" href="{{ url('/find-job') }}">Trouver des emplois </a>
 										</li>
-										<li class="nav-item dropdown">
-											<a href="#" class="nav-link dropdown-toggle-no-caret" role="button" data-toggle="dropdown">Find Hospitals</a>
-											<div class="dropdown-menu pages-dropdown">
-												<a class="link-item" href="browse_hospitals.html">Browse Hospitals</a>
-												<a class="link-item" href="other_hospital_profile.html">Hospital Profile</a>																																																																											
-											</div>
-										</li>									
-										<li class="nav-item dropdown pages152">
-											<a href="#" class="nav-link dropdown-toggle-no-caret" role="button" data-toggle="dropdown">
-												Pages <i class="fas fa-caret-down p-crt"></i>
-											</a>
-											<div class="dropdown-menu pages-dropdown">
-												<a class="link-item" href="about.html">About</a>
-												<a class="link-item" href="our_blog.html">Our Blog</a>											
-												<a class="link-item" href="blog_single_view.html">Signle Blog View</a>											
-												<a class="link-item" href="pricing_plans.html">Pricing Plans</a>											
-												<a class="link-item" href="checkout.html">Checkout</a>														
-												<a class="link-item" href="plan_invoice.html">Invoice Slip</a>																							
-												<a class="link-item" href="transaction_invoice.html">Invoice Transaction</a>																							
-												<a class="link-item" href="sign_in.html">Sign in</a>														
-												<a class="link-item" href="sign_up.html">Sign up</a>														
-												<a class="link-item" href="sign_up_select_profile.html">Sign up Select Profiles</a>														
-												<a class="link-item" href="sign_up_doctor_profile.html">Create Doctor Profile</a>														
-												<a class="link-item" href="sign_up_hospital_profile.html">Create Hospital Profile</a>														
-												<a class="link-item" href="sign_up_user_profile.html">Create User Profile</a>														
-												<a class="link-item" href="contact_us.html">Contact</a>														
-												<a class="link-item" href="help_center.html">Help Center</a>																																						
-											</div>
-										</li>										
+										<li class="nav-item active">
+											<a class="nav-link" href="{{ url('/find-profil') }}">Trouver des profils</a>
+										</li>
+										<li class="nav-item active">
+											<a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+										</li>
 									</ul>
 									<a href="#" class="search-link" role="button" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>
-									<a href="post_a_job.html" class="add-post">Post a Job</a>									
+									<a href="{{ url('/post-job') }}" class="add-post">Publier un projet</a>									
 								</div>
 								<div class="responsive-search order-1">
-									<input type="text" class="rsp-search" placeholder="Search...">
+									<input type="text" class="rsp-search" placeholder="Cherche...">
 									<i class="fas fa-search r-sh1"></i>
 								</div>
 							</nav>							
