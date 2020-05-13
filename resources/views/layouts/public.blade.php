@@ -31,7 +31,7 @@
     
         <x-public.navbar />
 
-        <main >
+        <main class="body-section">
             @yield('content')
 
             @include('layouts/alert')
