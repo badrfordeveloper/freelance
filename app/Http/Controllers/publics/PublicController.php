@@ -4,6 +4,10 @@ namespace App\Http\Controllers\publics;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+use App\Profil;
+use App\Skill;
+use App\Projet;
 
 class PublicController extends Controller
 {
@@ -20,12 +24,14 @@ class PublicController extends Controller
 
     public function findJob()
     {
-     return view('public.find_job');
-
+       $projets = Projet::orderBy('id', 'desc')->paginate(10);
+       return view('public.find_job', compact('projets'));
     }
     public function findProfil()
     {
-     return view('public.find_profil');
+        $freelancers = User::where("role","freelance")->paginate(10);
+        $skills = Skill::all();
+        return view('public.find_profil',compact('freelancers','skills'));
 
     }
     public function postJob()

@@ -44,58 +44,13 @@
 									<i class="dropdown icon"></i>
 									<input class="search" autocomplete="off" tabindex="0"><span class="sizer" style=""></span><div class="default text">Skills</div>
 									<div class="menu transition hidden" tabindex="-1">
-										<div class="item selected" data-value="angular">Angular</div>
-										<div class="item" data-value="css">CSS</div>
-										<div class="item" data-value="design">Graphic Design</div>
-										<div class="item" data-value="ember">Ember</div>
-										<div class="item" data-value="html">HTML</div>
-										<div class="item" data-value="ia">Information Architecture</div>
-										<div class="item" data-value="javascript">Javascript</div>
-										<div class="item" data-value="mech">Mechanical Engineering</div>
-										<div class="item" data-value="meteor">Meteor</div>
-										<div class="item" data-value="node">NodeJS</div>
-										<div class="item" data-value="plumbing">Plumbing</div>
-										<div class="item" data-value="python">Python</div>
-										<div class="item" data-value="rails">Rails</div>
-										<div class="item" data-value="react">React</div>
-										<div class="item" data-value="repair">Kitchen Repair</div>
-										<div class="item" data-value="ruby">Ruby</div>
-										<div class="item" data-value="ui">UI Design</div>
-										<div class="item" data-value="ux">User Experience</div>
+										@forelse($skills as $item)
+										<div class="item" data-value="{{ $item->id }}">{{ $item->libelle }}</div>
+										@empty
+										@endforelse
+										
 									</div>
 								</div>
-							</div>
-							<div class="fltr-group">
-								<div class="fltr-items-heading">
-									<div class="fltr-item-left">
-										<h6>Availability</h6>
-									</div>
-									<div class="fltr-item-right">
-										<a href="#">Clear</a>
-									</div>
-								</div>							
-								<div class="ui form">
-									<div class="grouped fields">										
-										<div class="field fltr-radio">
-											<div class="ui radio checkbox">
-												<input type="radio" name="example2" checked="checked">
-												<label>Hourly</label>
-											  </div>
-										</div>
-										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="example2">
-												<label>Part Time</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="example2">
-												<label class="lst-label">Full Time</label>
-											</div>
-										</div>										
-									</div>
-								</div>								
 							</div>
 							<div class="fltr-group">
 								<div class="fltr-items-heading">
@@ -128,25 +83,6 @@
 										<div class="item" data-value="Job13">Job 13</div>										
 										<div class="item" data-value="Job14">Job 14</div>										
 										<div class="item" data-value="Job15">Job 15</div>										
-									</div>
-								</div>
-							</div>
-							<div class="fltr-group">
-								<div class="fltr-items-heading">
-									<div class="fltr-item-left">
-										<h6>Pay Rate <span>($)</span></h6>
-									</div>
-									<div class="fltr-item-right">
-										<a href="#">Clear</a>
-									</div>
-								</div>								
-								<div class="filter-dd">									
-									<div class="rg-slider">
-										<input class="rn-slider slider-input" type="hidden" value="5,500" />
-									</div>
-									<div class="rg-limit">
-										<h4>5</h4>
-										<h4>5000</h4>
 									</div>
 								</div>
 							</div>
@@ -485,19 +421,45 @@
 							</div>
 							<div class="prjoects-content">
 								<div class="row">
+									@forelse($freelancers as $item)
 									<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
 										<div class="job-item mt-30">
 											<div class="job-top-dt1 text-center">
 												<div class="job-center-dt">
-													<img src="{{ asset('assets/publics/images/homepage/candidates/img-1.jpg') }}" alt="">
+													<img src="{{ asset('storage/'.$item->photo) }}" alt="">
 													<div class="job-urs-dts">
-														<a href="#"><h4>John Doe</h4></a>
-														<span>UX Designer</span>
-														<div class="avialable">Available Full Time</div>
+														<a href="#"><h4>{{ $item->nom }} {{ $item->prenom }}</h4></a>
+														<span>{{ $item->username }}</span>
+														<!--<div class="avialable">Available Full Time</div> -->
 													</div>													
 												</div>	
-												<div class="job-price hire-price">$50/hr</div>
+												<!-- <div class="job-price hire-price">$50/hr</div> -->
 											</div>
+											<div class="job-des-dt">
+													<div class="job-skills">
+														@if( @count($item->profile->skills) <= 2)
+
+															@forelse($item->profile->skills as $itm)
+															<a href="#">{{ $itm->libelle }}</a>
+															@empty
+															@endforelse
+														@else
+															<?php $cpt = 0 ?>
+															@forelse($item->profile->skills as $itm)
+																@if($cpt < 2)
+																<a href="#">{{ $itm->libelle }}</a>
+																<?php $cpt++ ?>
+																@else
+																	<?php break; ?>
+																@endif
+
+															@empty
+															@endforelse
+															<a href="#" class="more-skills">+{{ @count($item->profile->skills)-2 }}</a>
+														@endif
+														
+													</div>
+												</div>
 											<div class="rating-location">
 												<div class="left-rating">
 													<div class="rtitle">Rating</div>
@@ -518,240 +480,20 @@
 												</div>
 											</div>
 											<div class="job-buttons">
-												<ul class="link-btn">
-													<li><a href="other_freelancer_profile.html" class="link-j1" title="View Profile">View Profile</a></li>
-													<li><a href="#" class="link-j1" title="Hire Me">Hire Me</a></li>
-													<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li>
+												<ul class="">
+													<li><a href="other_freelancer_profile.html" class="link-j1" title="View Profile">Voir Profile</a></li>
+													<!-- <li><a href="#" class="link-j1" title="Hire Me">Hire Me</a></li>
+													<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li> -->
 												</ul>
 											</div>
 										</div>
 									</div>
-									<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-										<div class="job-item mt-30">
-											<div class="job-top-dt1 text-center">
-												<div class="job-center-dt">
-													<img src="{{ asset('assets/publics/images/homepage/candidates/img-2.jpg') }}" alt="">
-													<div class="job-urs-dts">
-														<a href="#"><h4>Albert Dua</h4></a>
-														<span>Wordpress Developer</span>
-														<div class="avialable">Available Full Time</div>
-													</div>													
-												</div>	
-												<div class="job-price hire-price">$50/hr</div>
-											</div>
-											<div class="rating-location">
-												<div class="left-rating">
-													<div class="rtitle">Rating</div>
-													<div class="star">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>								
-														<span>4.9</span> 
-													</div>
-												</div>
-												<div class="right-location">
-													<div class="text-left">
-														<div class="rtitle">Location</div>
-														<span><i class="fas fa-map-marker-alt"></i> Australia</span>
-													</div>
-												</div>
-											</div>
-											<div class="job-buttons">
-												<ul class="link-btn">
-													<li><a href="other_freelancer_profile.html" class="link-j1" title="View Profile">View Profile</a></li>
-													<li><a href="#" class="link-j1" title="Hire Me">Hire Me</a></li>
-													<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-										<div class="job-item mt-30">
-											<div class="job-top-dt1 text-center">
-												<div class="job-center-dt">
-													<img src="{{ asset('assets/publics/images/homepage/candidates/img-3.jpg') }}" alt="">
-													<div class="job-urs-dts">
-														<a href="#"><h4>Rock William</h4></a>
-														<span>Php Developer</span>
-														<div class="avialable">Available Full Time</div>
-													</div>													
-												</div>	
-												<div class="job-price hire-price">$60/hr</div>
-											</div>
-											<div class="rating-location">
-												<div class="left-rating">
-													<div class="rtitle">Rating</div>
-													<div class="star">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>								
-														<span>5.0</span> 
-													</div>
-												</div>
-												<div class="right-location">
-													<div class="text-left">
-														<div class="rtitle">Location</div>
-														<span><i class="fas fa-map-marker-alt"></i> India</span>
-													</div>
-												</div>
-											</div>
-											<div class="job-buttons">
-												<ul class="link-btn">
-													<li><a href="other_freelancer_profile.html" class="link-j1" title="View Profile">View Profile</a></li>
-													<li><a href="#" class="link-j1" title="Hire Me">Hire Me</a></li>
-													<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-										<div class="job-item mt-30">
-											<div class="job-top-dt1 text-center">
-												<div class="job-center-dt">
-													<img src="{{ asset('assets/publics/images/homepage/candidates/img-4.jpg') }}" alt="">
-													<div class="job-urs-dts">
-														<a href="#"><h4>Joy Smith</h4></a>
-														<span>Android Developer</span>
-														<div class="avialable">Available Full Time</div>
-													</div>													
-												</div>	
-												<div class="job-price hire-price">$60/hr</div>
-											</div>
-											<div class="rating-location">
-												<div class="left-rating">
-													<div class="rtitle">Rating</div>
-													<div class="star">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>								
-														<span>5.0</span> 
-													</div>
-												</div>
-												<div class="right-location">
-													<div class="text-left">
-														<div class="rtitle">Location</div>
-														<span><i class="fas fa-map-marker-alt"></i> India</span>
-													</div>
-												</div>
-											</div>
-											<div class="job-buttons">
-												<ul class="link-btn">
-													<li><a href="other_freelancer_profile.html" class="link-j1" title="View Profile">View Profile</a></li>
-													<li><a href="#" class="link-j1" title="Hire Me">Hire Me</a></li>
-													<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-										<div class="job-item mt-30">
-											<div class="job-top-dt1 text-center">
-												<div class="job-center-dt">
-													<img src="{{ asset('assets/publics/images/homepage/candidates/img-5.jpg') }}" alt="">
-													<div class="job-urs-dts">
-														<a href="#"><h4>Sanaya Sharma</h4></a>
-														<span>Accountant manager</span>
-														<div class="avialable">Available Full Time</div>
-													</div>													
-												</div>	
-												<div class="job-price hire-price">$30/hr</div>
-											</div>
-											<div class="rating-location">
-												<div class="left-rating">
-													<div class="rtitle">Rating</div>
-													<div class="star">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>								
-														<span>4.0</span> 
-													</div>
-												</div>
-												<div class="right-location">
-													<div class="text-left">
-														<div class="rtitle">Location</div>
-														<span><i class="fas fa-map-marker-alt"></i> India</span>
-													</div>
-												</div>
-											</div>
-											<div class="job-buttons">
-												<ul class="link-btn">
-													<li><a href="other_freelancer_profile.html" class="link-j1" title="View Profile">View Profile</a></li>
-													<li><a href="#" class="link-j1" title="Hire Me">Hire Me</a></li>
-													<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-										<div class="job-item mt-30">
-											<div class="job-top-dt1 text-center">
-												<div class="job-center-dt">
-													<img src="{{ asset('assets/publics/images/homepage/candidates/img-6.jpg') }}" alt="">
-													<div class="job-urs-dts">
-														<a href="#"><h4>Jass Singh</h4></a>
-														<span>Front End Developer</span>
-														<div class="avialable">Available Full Time</div>
-													</div>													
-												</div>	
-												<div class="job-price hire-price">$25/hr</div>
-											</div>
-											<div class="rating-location">
-												<div class="left-rating">
-													<div class="rtitle">Rating</div>
-													<div class="star">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>								
-														<span>5.0</span> 
-													</div>
-												</div>
-												<div class="right-location">
-													<div class="text-left">
-														<div class="rtitle">Location</div>
-														<span><i class="fas fa-map-marker-alt"></i> India</span>
-													</div>
-												</div>
-											</div>
-											<div class="job-buttons">
-												<ul class="link-btn">
-													<li><a href="other_freelancer_profile.html" class="link-j1" title="View Profile">View Profile</a></li>
-													<li><a href="#" class="link-j1" title="Hire Me">Hire Me</a></li>
-													<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li>
-												</ul>
-											</div>
-										</div>
-									</div>
+									@empty
+									@endforelse
 									
 									<div class="col-12">
 										<div class="main-p-pagination">
-											<nav aria-label="Page navigation example">
-												<ul class="pagination">
-													<li class="page-item">
-														<a class="page-link" href="#" aria-label="Previous">
-															PREV
-														</a>
-													</li>
-													<li class="page-item"><a class="page-link active" href="#">1</a></li>
-													<li class="page-item"><a class="page-link" href="#">2</a></li>
-													<li class="page-item"><a class="page-link" href="#">...</a></li>
-													<li class="page-item"><a class="page-link" href="#">24</a></li>
-													<li class="page-item">
-														<a class="page-link" href="#" aria-label="Next">
-															NEXT
-														</a>
-													</li>
-												</ul>
-											</nav>
+											{{ $freelancers->links() }}
 										</div>
 									</div>										
 								</div>
