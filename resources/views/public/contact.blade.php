@@ -30,7 +30,7 @@
 								<div class="main-heading bids_heading">
 									<h2>Contact Information</h2>
 									<div class="line-shape1">
-										<img src="images/line.svg" alt="">
+										<img src="{{ asset('assets/publics/images/line.svg') }}" alt="">
 									</div>
 								</div>
 								<ul class="cinfo10">
@@ -44,7 +44,7 @@
 								<div class="main-heading">
 									<h2>Open a Ticket</h2>
 									<div class="line-shape1">
-										<img src="images/line.svg" alt="">
+										<img src="{{ asset('assets/publics/images/line.svg') }}" alt="">
 									</div>
 								</div>
 								<form>

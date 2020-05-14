@@ -446,7 +446,7 @@
 					<div class="col-lg-8 col-md-7 mainpage">
 						<div class="browse-banner">
 							<div class="bbnr-left">
-								<img src="images/browse/trophy.png" alt="">
+								<img src="{{ asset('assets/publics/images/browse/trophy.png') }}" alt="">
 								<div class="bbnr-text">
 									<h4>Upgrade to Pro</h4>
 									<p>Unlimited Job Posts and Apply.</p>
@@ -500,7 +500,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-1.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-1.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>John Doe</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> New York City</span>
@@ -534,7 +534,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-2.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-2.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Johnson Smith</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
@@ -568,7 +568,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-3.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-3.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Envato</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> Australia</span>
@@ -602,7 +602,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-4.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-4.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Joy Smith</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
@@ -635,7 +635,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-5.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-5.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Jassica William</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> Australia</span>
@@ -668,7 +668,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-6.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-6.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Gambolthemes</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
@@ -728,7 +728,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-1.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-1.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>John Doe</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> New York City</span>
@@ -762,7 +762,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-2.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-2.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Johnson Smith</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
@@ -796,7 +796,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-3.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-3.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Envato</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> Australia</span>
@@ -830,7 +830,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-4.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-4.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Joy Smith</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
@@ -863,7 +863,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-5.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-5.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Jassica William</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> Australia</span>
@@ -896,7 +896,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-6.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-6.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Gambolthemes</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
@@ -956,7 +956,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-1.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-1.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>John Doe</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> New York City</span>
@@ -990,7 +990,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-2.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-2.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Johnson Smith</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
@@ -1024,7 +1024,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-3.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-3.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Envato</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> Australia</span>
@@ -1058,7 +1058,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-4.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-4.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Joy Smith</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
@@ -1091,7 +1091,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-5.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-5.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Jassica William</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> Australia</span>
@@ -1124,7 +1124,7 @@
 											<div class="job-item mt-30">
 												<div class="job-top-dt">
 													<div class="job-left-dt">
-														<img src="images/homepage/latest-jobs/img-6.jpg" alt="">
+														<img src="{{ asset('assets/publics/images/homepage/latest-jobs/img-6.jpg') }}" alt="">
 														<div class="job-ut-dts">
 															<a href="#"><h4>Gambolthemes</h4></a>
 															<span><i class="fas fa-map-marker-alt"></i> India</span>
