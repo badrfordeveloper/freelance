@@ -481,7 +481,7 @@
 											</div>
 											<div class="job-buttons">
 												<ul class="">
-													<li><a href="other_freelancer_profile.html" class="link-j1" title="View Profile">Voir Profile</a></li>
+													<li><a href="{{url('details-freelancer/'.$item->id)}}" class="link-j1" title="View Profile">Voir Profile</a></li>
 													<!-- <li><a href="#" class="link-j1" title="Hire Me">Hire Me</a></li>
 													<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li> -->
 												</ul>

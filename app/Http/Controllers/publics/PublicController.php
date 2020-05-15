@@ -46,6 +46,19 @@ class PublicController extends Controller
 
     }
 
+    public function detailProfil(User $user)
+    {
+
+        if ($user->role !="freelance") 
+        {
+           return redirect('find-profil');
+        }
+        $skills = Skill::all();
+
+        return view('public.detail_freelancer',compact('user','skills'));
+
+    }
+
     public function postJob()
     {
      return view('public.post_job');

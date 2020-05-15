@@ -41,6 +41,8 @@ Route::get('/find-job', 'publics\\PublicController@findJob');
 Route::get('/find-profil', 'publics\\PublicController@findProfil');
 Route::get('/post-job', 'publics\\PublicController@postJob');
 Route::get('/show-job/{id}','publics\\PublicController@showJob');
+Route::get('/details-freelancer/{user}', 'publics\\PublicController@detailProfil');
+
 
 
 Route::resource('admin/categories', 'Admin\\CategoriesController');
