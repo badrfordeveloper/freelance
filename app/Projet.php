@@ -40,5 +40,10 @@ class Projet extends Model
     {
         return $this->belongsToMany('App\Skill');
     }
+
+    public function commandes()
+    {
+        return $this->hasMany('App\Commande');
+    }
     
 }

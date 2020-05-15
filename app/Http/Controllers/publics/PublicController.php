@@ -27,6 +27,17 @@ class PublicController extends Controller
        $projets = Projet::orderBy('id', 'desc')->paginate(10);
        return view('public.find_job', compact('projets'));
     }
+
+    public function showJob($id){
+        $projet = Projet::findOrFail($id);
+        $projets = Projet::where('categorie_id',$projet->categorie_id)->where('id','<>',$projet->id)->orderBy('id', 'desc')->take(5)->get();
+      
+        return view('public.show_job', compact('projet','projets'));
+
+    }
+
+
+
     public function findProfil()
     {
         $freelancers = User::where("role","freelance")->paginate(10);
@@ -34,11 +45,13 @@ class PublicController extends Controller
         return view('public.find_profil',compact('freelancers','skills'));
 
     }
+
     public function postJob()
     {
      return view('public.post_job');
 
     }
+
     public function contact()
     {
      return view('public.contact');

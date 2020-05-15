@@ -178,18 +178,14 @@
 													<div class="job-skills">
 
 														<a href="#">Catégorie : {{$item->categorie->libelle}}</a>
-												<!-- 	@foreach($item->skills as $skill)	
-												
-													<a href="#">{{$skill->libelle}}</a>
-												
-												@endforeach -->
+											
 													</div>
 												</div>
 
 												<div class="job-buttons">
 													<ul >
 														
-														<li><a href="job_single_view.html" class="link-j1" title="View Job">Voir offre</a></li>
+														<li><a href="{{ url('/show-job/'.$item->id) }}" class="link-j1" title="View Job">Voir offre</a></li>
 														
 													</ul>
 												</div>

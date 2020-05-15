@@ -34,11 +34,13 @@ Route::get('/', 'publics\\PublicController@index');
 
 Auth::routes();
 
+
 Route::get('/home', 'publics\\PublicController@index')->name('home');
 Route::get('/contact', 'publics\\PublicController@contact');
 Route::get('/find-job', 'publics\\PublicController@findJob');
 Route::get('/find-profil', 'publics\\PublicController@findProfil');
 Route::get('/post-job', 'publics\\PublicController@postJob');
+Route::get('/show-job/{id}','publics\\PublicController@showJob');
 
 
 Route::resource('admin/categories', 'Admin\\CategoriesController');
